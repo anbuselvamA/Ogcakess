@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicia | Best Custom Cakes Bakery</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-cake-candles"></i> Delicia
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="reveal-text">Best Custom<br>Cakes Bakery</h1>
+            <p class="subtext reveal-element" style="transition-delay: 0.1s">Premium Quality Cakes since 1995</p>
+            <a href="#products" class="btn-primary reveal-element" style="transition-delay: 0.2s">Explore Our Cakes</a>
+        </div>
+        
+        <div class="hero-visuals">
+            <div class="blob-bg-static"></div>
+            
+            <!-- Floating Decorative Elements -->
+            <div class="deco balloon-gold">
+                <svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="goldGrad" cx="35%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#fff8d6"/>
+                            <stop offset="40%" stop-color="#ffd700"/>
+                            <stop offset="100%" stop-color="#b8860b"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="40" cy="45" rx="35" ry="42" fill="url(#goldGrad)" opacity="0.9"/>
+                    <ellipse cx="28" cy="25" rx="10" ry="18" fill="rgba(255,255,255,0.6)" transform="rotate(-35 28 25)" />
+                    <polygon points="34,85 46,85 40,92" fill="#d4af37" />
+                    <path d="M 40 92 Q 30 105 45 115 T 40 120" fill="none" stroke="#fff" stroke-width="2" opacity="0.6" />
+                </svg>
+            </div>
+            <div class="deco balloon-black">
+                <svg width="70" height="110" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="blackGrad" cx="35%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#666"/>
+                            <stop offset="50%" stop-color="#1a1a1a"/>
+                            <stop offset="100%" stop-color="#000"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="40" cy="45" rx="35" ry="42" fill="url(#blackGrad)" opacity="0.95"/>
+                    <ellipse cx="28" cy="25" rx="10" ry="18" fill="rgba(255,255,255,0.4)" transform="rotate(-35 28 25)" />
+                    <polygon points="34,85 46,85 40,92" fill="#222" />
+                    <path d="M 40 92 Q 30 105 45 115 T 40 120" fill="none" stroke="#fff" stroke-width="2" opacity="0.6" />
+                </svg>
+            </div>
+            
+            <div class="deco mint-leaf1">
+                <svg width="40" height="50" viewBox="0 0 30 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15,0 C28,8 35,20 15,40 C-5,20 2,8 15,0 Z" fill="#4ade80" opacity="0.8"/>
+                    <path d="M15,40 Q15,20 15,0 M15,25 Q20,15 23,10 M15,30 Q10,20 7,15" fill="none" stroke="#22c55e" stroke-width="1.5" />
+                </svg>
+            </div>
+            <div class="deco mint-leaf2">
+                <svg width="30" height="40" viewBox="0 0 30 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15,0 C28,8 35,20 15,40 C-5,20 2,8 15,0 Z" fill="#4ade80" opacity="0.75"/>
+                    <path d="M15,40 Q15,20 15,0 M15,25 Q20,15 23,10 M15,30 Q10,20 7,15" fill="none" stroke="#22c55e" stroke-width="1.5" />
+                </svg>
+            </div>
+
+
+
+            <!-- The Stage -->
+            <div class="display-stage">
+                <!-- Elegant Glass Base -->
+                <div class="elegant-base">
+                    <div class="glow-ring"></div>
+                    <div class="glass-plate"></div>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper cakeSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Background Removed Transparent Photos mapped directly from your paste! -->
+                        <div class="swiper-slide">
+                            <div class="cake-crop">
+                                <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Custom Transparent Cake">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cake-crop">
+                                <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Custom Transparent Cake">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cake-crop">
+                                <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Custom Transparent Cake">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cake-crop">
+                                <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Custom Transparent Cake">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="cake-crop">
+                                <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Custom Transparent Cake">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image reveal-element">
+                <div class="blob-bg blob2"></div>
+                <img src="./assets/chef_1776104827310.png" alt="Our Executive Chef">
+            </div>
+            <div class="about-text reveal-element delay-200">
+                <h2>Baking Dreams into Reality</h2>
+                <p>Welcome to Delicia, where passion meets pastry. For over a decade, our executive chefs have crafted exquisite custom cakes combining artistic design with unparalleled flavor. We believe every cake should tell a story and every celebration deserves a masterpiece.</p>
+                <a href="#products" class="btn-secondary">View our products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtered Product Gallery -->
+    <section id="products" class="products">
+        <h2 class="section-title reveal-element">Our Products</h2>
+        <div class="product-filters reveal-element delay-100">
+            <button class="filter-btn active" data-filter="all">All Items</button>
+            <button class="filter-btn" data-filter="luxury">Luxury Cakes</button>
+            <button class="filter-btn" data-filter="custom">Custom Creations</button>
+        </div>
+        <div class="product-grid">
+            <!-- LUXURY CAKES -->
+            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.1s;">
+                <div class="card-img">
+                    <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Masterpiece Cake" style="mix-blend-mode: normal;">
+                </div>
+                <div class="card-info">
+                    <h3>Signature Bow Masterpiece</h3>
+                    <p class="price">$120.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.2s;">
+                <div class="card-img">
+                    <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Golden Elegance Cake" style="mix-blend-mode: normal;">
+                </div>
+                <div class="card-info">
+                    <h3>Golden Elegance</h3>
+                    <p class="price">$145.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.3s;">
+                <div class="card-img">
+                    <img src="./assets/vanilla_cake_1776104332418.png" alt="Vanilla">
+                </div>
+                <div class="card-info">
+                    <h3>Classic Vanilla Elegance</h3>
+                    <p class="price">$50.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.4s;">
+                <div class="card-img">
+                    <img src="./assets/strawberry_cake_1776104196224.png" alt="Strawberry">
+                </div>
+                <div class="card-info">
+                    <h3>Strawberry Blossom</h3>
+                    <p class="price">$55.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+
+            <!-- CUSTOM CREATIONS -->
+            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.5s;">
+                <div class="card-img">
+                    <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Anime Theme Cake" style="mix-blend-mode: normal;">
+                </div>
+                <div class="card-info">
+                    <h3>Ninja Custom Design</h3>
+                    <p class="price">$95.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.6s;">
+                <div class="card-img">
+                    <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Anniversary Specials" style="mix-blend-mode: normal;">
+                </div>
+                <div class="card-info">
+                    <h3>Pistachio Anniversary</h3>
+                    <p class="price">$110.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.7s;">
+                <div class="card-img">
+                    <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Floral Cupcakes" style="mix-blend-mode: normal;">
+                </div>
+                <div class="card-info">
+                    <h3>Lavender Floral Delight</h3>
+                    <p class="price">$85.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.8s;">
+                <div class="card-img">
+                    <img src="./assets/nutty_chocolate_cake_1776104211012.png" alt="Chocolate">
+                </div>
+                <div class="card-info">
+                    <h3>Nutty Chocolate Praline</h3>
+                    <p class="price">$65.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+            <!-- ADDITIONAL CAKES -->
+            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.9s;">
+                <div class="card-img">
+                    <img src="./assets/raspberry_cake_1776104471091.png" alt="Raspberry Cake">
+                </div>
+                <div class="card-info">
+                    <h3>Raspberry Royale</h3>
+                    <p class="price">$75.00</p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section id="featured" class="new-creations">
+        <div class="new-container">
+            <div class="new-text reveal-element">
+                <span class="badge">Featured Collection</span>
+                <h2>Featured: Signature Elegance</h2>
+                <p>Indulge in our latest luxurious creation. Delicate sponge, our signature buttercream, and breathtaking custom design elements make this a true masterpiece. Perfect for extraordinary moments.</p>
+                <button class="btn-primary">View Details</button>
+            </div>
+            <div class="new-image reveal-element delay-200">
+                <div class="blob-bg blob3"></div>
+                <!-- Highlight specific image -->
+                <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Signature Masterpiece" style="border-radius:30px; mix-blend-mode:normal;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <h2 class="footer-title reveal-element">Order Your Custom Cake Now!</h2>
+        <div class="footer-grid">
+            <div class="footer-col reveal-element delay-100 map-col">
+                <iframe src="https://maps.google.com/maps?q=Virudhachalam&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="footer-col reveal-element delay-100 info-col">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Virudhachalam, Tamil Nadu</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+91 87780 77747</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Operational Hours</h4>
+                        <p>Mon-Sat: 8AM - 8PM<br>Sun: 9AM - 5PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col social-col reveal-element delay-200">
+                <h4>Connect With Us</h4>
+                <div class="footer-socials">
+                    <a href="tel:8778077747" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://wa.me/918778077747" target="_blank" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Delicia Custom Cakes. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Place Your Order</h2>
+            <p>Connect with us to customize and finalize your order!</p>
+            <div class="contact-options">
+                <a href="https://wa.me/918778077747" target="_blank" class="contact-btn whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp: 8778077747
+                </a>
+                <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-btn insta-btn">
+                    <i class="fa-brands fa-instagram"></i> Instagram: @zia_cakes_virudhachalam
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
