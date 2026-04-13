@@ -15,19 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    /* --- Featured 3D Coverflow Swiper --- */
+    /* --- Featured Phone-Style Cards Swiper --- */
     var newCakeSwiper = new Swiper(".newCakeSwiper", {
-      effect: "coverflow",
+      effect: "cards",
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: "auto",
       loop: true,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 250,
-        modifier: 2,
-        slideShadows: false, /* Turn off native shadow to keep background clean */
+      cardsEffect: {
+        slideShadows: true, /* Enable default shadows for 3d depth on cards */
       },
       autoplay: {
         delay: 3500,

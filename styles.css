@@ -354,13 +354,13 @@ a {
 .watermark-text { position: absolute; font-family: 'Montserrat', sans-serif; font-size: 10rem; font-weight: 900; color: rgba(255,255,255,0.4); z-index: 0; text-align: center; line-height: 0.8; letter-spacing: -3px; width: 100%; top: 10%; pointer-events: none;}
 .cake-display-group { position: relative; width: 100%; height: 350px; display: flex; justify-content: center; align-items: flex-end; z-index: 2; margin-bottom: 20px;}
 
-.newCakeSwiper { width: 100%; height: 480px; z-index: 2; padding-top: 20px; padding-bottom: 50px; }
-.card-slide { width: 280px !important; height: auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
-.card-slide img { width: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3)); transition: transform 0.3s ease; cursor: grab;}
+.newCakeSwiper { width: 100%; height: 550px; z-index: 2; padding-top: 20px; padding-bottom: 50px; }
+.card-slide { width: 280px !important; height: 480px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 15px 35px rgba(74, 37, 33, 0.2); background: var(--maroon-dark); }
+.card-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; cursor: grab; z-index: 1; }
 .card-slide:active img { cursor: grabbing; }
-.card-slide.swiper-slide-active img { transform: scale(1.05); filter: drop-shadow(0 25px 40px rgba(0,0,0,0.4)); }
-.slide-title { font-family: 'Dancing Script', cursive; font-size: 2.2rem; font-weight: 700; color: var(--maroon-dark); margin-top: 15px; opacity: 0; transition: opacity 0.5s ease; text-align: center; }
-.swiper-slide-active .slide-title { opacity: 1; text-shadow: 0 4px 10px rgba(255,255,255,0.5); }
+.card-slide.swiper-slide-active img { transform: scale(1.05); }
+.slide-title { position: absolute; bottom: 0; left: 0; width: 100%; padding: 60px 20px 25px; background: linear-gradient(to top, rgba(74, 37, 33, 0.9), transparent); font-family: 'Dancing Script', cursive; font-size: 2.2rem; font-weight: 700; color: var(--white); opacity: 0; transition: opacity 0.5s ease; text-align: center; z-index: 2; }
+.swiper-slide-active .slide-title { opacity: 1; }
 
 .footer { background: var(--maroon-dark); color: var(--white); padding: 80px 5% 30px; }
 .footer-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
