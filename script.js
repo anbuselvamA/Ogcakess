@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    /* --- Featured Phone-Style Cards Swiper --- */
+    /* --- Featured Square Cards Swiper --- */
     var newCakeSwiper = new Swiper(".newCakeSwiper", {
       effect: "cards",
       grabCursor: true,
@@ -25,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsEffect: {
         slideShadows: true, /* Enable default shadows for 3d depth on cards */
       },
-      speed: 1000, /* 1 second smooth swiping to next item */
+      speed: 1800, /* Ultra slow and smooth swiping transition */
+      touchRatio: 0.8, /* Adds slightly more resistance to the physical drag */
       autoplay: {
-        delay: 3500,
+        delay: 4500,
         disableOnInteraction: false,
       }
     });
