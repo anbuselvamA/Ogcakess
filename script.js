@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    /* --- Featured 3D Coverflow Swiper --- */
+    var newCakeSwiper = new Swiper(".newCakeSwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 250,
+        modifier: 2,
+        slideShadows: false, /* Turn off native shadow to keep background clean */
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      }
+    });
+
     /* --- Product Filter --- */
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
