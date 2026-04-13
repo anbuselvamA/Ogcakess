@@ -84,6 +84,14 @@ a {
     color: var(--pink-accent);
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--maroon-dark);
+    cursor: pointer;
+    z-index: 1000;
+}
+
 /* Global Buttons */
 .btn-primary {
     display: inline-block;
@@ -493,8 +501,24 @@ a {
     .card-slide { width: 220px !important; }
 }
 
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-links { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 0; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path 0.4s ease-out; }
+    .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .nav-links li { text-align: center; }
+
+    .hero { padding: 120px 20px 30px; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    
+    .cakeSwiper { height: 250px; bottom: 35px; }
+    .cake-crop img { max-width: 80%; margin: 0 auto; }
+    .display-stage { height: 260px; max-width: 320px; margin: 0 auto; }
+    .elegant-base { width: 80%; max-width: 250px; bottom: 5px; }
+    .glass-plate { width: 100%; height: 35px; }
+    .glow-ring { width: 115%; height: 45px; }
+}
+
 @media (max-width: 500px) {
-    .nav-links { display: none; }
     .hero-content h1 { font-size: 2.4rem; }
     .hero-content .subtext { font-size: 1rem; }
     .blob-bg-static { height: 300px; right: 0; max-width: 100%; }
