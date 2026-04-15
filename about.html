@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicia | Best Custom Cakes Bakery</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Micro Interactions Layers -->
+    <div class="noise-overlay"></div>
+    <div class="custom-cursor"></div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-cake-candles"></i> Delicia
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#featured">Featured</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Removed Hero Section -->
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image reveal-element">
+                <div class="blob-bg blob2"></div>
+                <img src="./assets/chef_1776104827310.png" alt="Our Executive Chef">
+            </div>
+            <div class="about-text reveal-element delay-200">
+                <h2 class="gold-text">A Symphony of <br>Flavors & Elegance</h2>
+                <div class="about-highlights">
+                    <span class="highlight-tag"><i class="fa-solid fa-cake-candles"></i> Since 1995</span>
+                    <span class="highlight-tag"><i class="fa-solid fa-heart"></i> Handmade with Love</span>
+                    <span class="highlight-tag"><i class="fa-solid fa-gem"></i> Premium Ingredients</span>
+                </div>
+                <p>We meticulously handcraft <span class="gold-text">artisanal</span> desserts, <span class="gold-text">signature</span> cakes, and a curated selection of gourmet sweets. Our devotion to the culinary arts ensures an unforgettable <span class="gold-text">luxury experience</span> designed for your most cherished moments.</p>
+                <a href="index.html#products" class="btn-about">Explore the Indulgence</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections Removed from About Page -->
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <h2 class="footer-title reveal-element gold-text">Commission Your Bespoke Creation</h2>
+        <div class="footer-grid">
+            <div class="footer-col reveal-element delay-100 map-col">
+                <iframe src="https://maps.google.com/maps?q=Virudhachalam&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="footer-col reveal-element delay-100 info-col">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Virudhachalam, Tamil Nadu</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+91 87780 77747</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Operational Hours</h4>
+                        <p>Mon-Sat: 8AM - 8PM<br>Sun: 9AM - 5PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-col social-col reveal-element delay-200">
+                <h4>Connect With Us</h4>
+                <div class="footer-socials">
+                    <a href="tel:8778077747" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://wa.me/918778077747" target="_blank" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Delicia Custom Cakes. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="gold-text">Secure Your Artisanal Masterpiece</h2>
+            <p>Connect with our master bakers to commission your personalized luxury cake.</p>
+            <div class="contact-options">
+                <a href="https://wa.me/918778077747" target="_blank" class="contact-btn whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp: 8778077747
+                </a>
+                <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-btn insta-btn">
+                    <i class="fa-brands fa-instagram"></i> Instagram: @zia_cakes_virudhachalam
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

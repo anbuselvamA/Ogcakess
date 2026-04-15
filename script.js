@@ -55,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
       centeredSlides: true,
       slidesPerView: "auto",
       loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
       coverflowEffect: {
         rotate: 0,
         stretch: 80,
@@ -73,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeSlide = this.slides[this.activeIndex];
             if (activeSlide) {
                 const theme = activeSlide.getAttribute('data-theme');
-                newCreationsSection.classList.remove('theme-rose', 'theme-choco', 'theme-vanilla', 'theme-lavender');
+                newCreationsSection.classList.remove('theme-rose', 'theme-choco', 'theme-vanilla', 'theme-lavender', 'theme-peach');
                 if (theme) {
                     newCreationsSection.classList.add(theme);
                 }

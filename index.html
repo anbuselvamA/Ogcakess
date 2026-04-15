@@ -24,8 +24,8 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#featured">Featured</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -61,6 +61,12 @@
             <a href="#products" class="btn-premium slide-up-text delay-2">
                 Discover Our Collection <i class="fa-solid fa-arrow-right icon-inside"></i>
             </a>
+            <!-- Premium Brand Badges to break symmetry and add realism -->
+            <div class="brand-trust slide-up-text delay-3">
+                <span class="trust-badge"><i class="fa-solid fa-award"></i> Est. 1995</span>
+                <span class="trust-badge"><i class="fa-solid fa-leaf"></i> Premium Ingredients</span>
+                <span class="trust-badge"><i class="fa-solid fa-cake-candles"></i> Handcrafted</span>
+            </div>
         </div>
         
         <!-- Hero Visual (Carousel with Glass Stage) -->
@@ -108,20 +114,7 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-image reveal-element">
-                <div class="blob-bg blob2"></div>
-                <img src="./assets/chef_1776104827310.png" alt="Our Executive Chef">
-            </div>
-            <div class="about-text reveal-element delay-200">
-                <h2 class="gold-text">A Symphony of <br>Flavors & Elegance</h2>
-                <p>We meticulously handcraft <span class="gold-text">artisanal</span> desserts, <span class="gold-text">signature</span> cakes, and a curated selection of gourmet sweets. Our devotion to the culinary arts ensures an unforgettable <span class="gold-text">luxury experience</span> designed for your most cherished moments.</p>
-                <a href="#products" class="btn-about">Explore the Indulgence</a>
-            </div>
-        </div>
-    </section>
+    <!-- About Link Redirected to about.html -->
 
     <!-- Filtered Product Gallery -->
     <section id="products" class="products bg-luxury transition-bg">
@@ -292,7 +285,7 @@
     </section>
 
     <!-- Featured Collection -->
-    <section id="featured" class="new-creations">
+    <section id="featured" class="new-creations theme-rose">
         <div class="new-container">
             <div class="new-text reveal-element">
                 <h2 class="gold-text">Discover Our <br> Newest Indulgences</h2>
@@ -311,9 +304,13 @@
                             <img src="./assets/nutty_chocolate_cake_1776104211012-nobg.png" alt="Nutty Chocolate Cake">
                             <h3 class="slide-title">Madurai Cocoa Indulgence</h3>
                         </div>
-                        <div class="swiper-slide card-slide" data-theme="theme-lavender">
-                            <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Lavender Floral Cake">
-                            <h3 class="slide-title">Kumbakonam Rose Petal Cake</h3>
+                        <div class="swiper-slide card-slide" data-theme="theme-vanilla">
+                            <img src="./assets/vanilla_cake_1776104332418-nobg.png" alt="Vanilla Classic">
+                            <h3 class="slide-title">Kodaikanal Vanilla Classic</h3>
+                        </div>
+                        <div class="swiper-slide card-slide" data-theme="theme-peach">
+                            <img src="./assets/strawberry_cake_1776104196224-nobg.png" alt="Strawberry Reverie">
+                            <h3 class="slide-title">Ooty Strawberry Reverie</h3>
                         </div>
                     </div>
                     <!-- Pagination dots below slider -->
