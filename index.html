@@ -1,388 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicia | Best Custom Cakes Bakery</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zia Cakes &mdash; Fresh Cakes Made with Love in Virudhachalam</title>
+  <meta name="description" content="Zia Cakes, Virudhachalam — order fresh custom birthday, wedding and celebration cakes. Same day delivery available. Call or WhatsApp: 8778077747." />
+  <meta name="theme-color" content="#2C1A0E" />
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Micro Interactions Layers -->
-    <div class="noise-overlay"></div>
-    <div class="custom-cursor"></div>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-cake-candles"></i> Delicia
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#featured">Featured</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </header>
+  <!-- Grain texture overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
 
-    <!-- Premium Interactive Hero Section -->
-    <section id="home" class="hero premium-hero parallax-container">
-        <!-- Animated Background Lights for Depth -->
-        <div class="light-spot spot1"></div>
-        <div class="light-spot spot2"></div>
-        <div class="light-spot spot3"></div>
-
-        <!-- Floating Particles & Micro-elements -->
-        <div class="particles">
-            <i class="fa-solid fa-star sparkle s1"></i>
-            <i class="fa-solid fa-cake-candles icon-float p1"></i>
-            <i class="fa-solid fa-star sparkle s2"></i>
-            <i class="fa-solid fa-cookie-bite icon-float p3"></i>
-            <i class="fa-solid fa-heart icon-float p2"></i>
-            <div class="particle-dot d1"></div>
-            <div class="particle-dot d2"></div>
-        </div>
-
-        <!-- Hero Typography & CTA -->
-        <div class="hero-content z-index-content">
-            <h1 class="slide-up-text">Crafted for<br><span class="gold-text">Sweet Perfection</span></h1>
-            <p class="subtext slide-up-text delay-1">Artfully crafted cakes made with the finest ingredients.</p>
-            <a href="#products" class="btn-premium slide-up-text delay-2">
-                Discover Our Collection <i class="fa-solid fa-arrow-right icon-inside"></i>
-            </a>
-            <!-- Premium Brand Badges to break symmetry and add realism -->
-            <div class="brand-trust slide-up-text delay-3">
-                <span class="trust-badge"><i class="fa-solid fa-award"></i> Est. 1995</span>
-                <span class="trust-badge"><i class="fa-solid fa-leaf"></i> Premium Ingredients</span>
-                <span class="trust-badge"><i class="fa-solid fa-cake-candles"></i> Handcrafted</span>
-            </div>
-        </div>
-        
-        <!-- Hero Visual (Carousel with Glass Stage) -->
-        <div class="hero-visuals parallax-element z-index-content" data-speed="0.04">
-            <!-- The Stage -->
-            <div class="display-stage">
-                <!-- Elegant Glass Base -->
-                <div class="elegant-base">
-                    <div class="glow-ring"></div>
-                    <div class="glass-plate"></div>
-                </div>
-
-                <!-- Swiper -->
-                <div class="swiper cakeSwiper">
-                    <div class="swiper-wrapper">
-                        <!-- Background Removed Transparent Photos -->
-                        <div class="swiper-slide">
-                            <div class="cake-crop">
-                                <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Custom Transparent Cake">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="cake-crop">
-                                <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Custom Transparent Cake">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="cake-crop">
-                                <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Custom Transparent Cake">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="cake-crop">
-                                <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Custom Transparent Cake">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="cake-crop">
-                                <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Custom Transparent Cake">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Link Redirected to about.html -->
-
-    <!-- Filtered Product Gallery -->
-    <section id="products" class="products bg-luxury transition-bg">
-        <h2 class="section-title reveal-element gold-text">Our Products</h2>
-        <div class="product-filters-wrapper reveal-element delay-100">
-            <div class="product-filters">
-                <button class="filter-tab active" data-filter="all" data-bg="bg-luxury">All Items</button>
-                <button class="filter-tab" data-filter="luxury" data-bg="bg-luxury">Luxury Cakes</button>
-                <button class="filter-tab" data-filter="custom" data-bg="bg-custom">Custom Creations</button>
-                <button class="filter-tab" data-filter="chocolate" data-bg="bg-chocolate">Chocolate Cakes</button>
-                <button class="filter-tab" data-filter="wedding" data-bg="bg-wedding">Wedding Cakes</button>
-                <div class="filter-underline"></div>
-            </div>
-        </div>
-        <div class="product-grid">
-            <!-- LUXURY CAKES -->
-            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.1s;">
-                <div class="card-img">
-                    <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Masterpiece Cake" style="mix-blend-mode: normal;">
-                </div>
-                <div class="card-info">
-                    <h3>Chennai Signature Bow</h3>
-                    <p class="desc">Soft cake with sweet cream frosting. Perfect for your family function!</p>
-                    <p class="price">₹1450</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.2s;">
-                <div class="card-img">
-                    <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Golden Elegance Cake" style="mix-blend-mode: normal;">
-                </div>
-                <div class="card-info">
-                    <h3>Kanchipuram Gold Elegance</h3>
-                    <p class="desc">Tasty cream layers with real gold. Makes wedding functions extra grand!</p>
-                    <p class="price">₹2150</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="wedding" style="transition-delay: 0.3s;">
-                <div class="card-img">
-                    <img src="./assets/vanilla_cake_1776104332418-nobg.png" alt="Vanilla">
-                </div>
-                <div class="card-info">
-                    <h3>Kodaikanal Vanilla Classic</h3>
-                    <p class="desc">Very soft and light vanilla cake. An everyday favorite for the house.</p>
-                    <p class="price">₹650</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.4s;">
-                <div class="card-img">
-                    <img src="./assets/strawberry_cake_1776104196224-nobg.png" alt="Strawberry">
-                </div>
-                <div class="card-info">
-                    <h3>Ooty Strawberry Reverie</h3>
-                    <p class="desc">Sweet strawberry cake with fresh cream. Kids always ask for this flavor!</p>
-                    <p class="price">₹750</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-
-            <!-- CUSTOM CREATIONS -->
-            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.5s;">
-                <div class="card-img">
-                    <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Anime Theme Cake" style="mix-blend-mode: normal;">
-                </div>
-                <div class="card-info">
-                    <h3>Coimbatore Custom Avant-Garde</h3>
-                    <p class="desc">Tell us your design idea! We will bake a beautiful custom cake.</p>
-                    <p class="price">₹1100</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.6s;">
-                <div class="card-img">
-                    <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Anniversary Specials" style="mix-blend-mode: normal;">
-                </div>
-                <div class="card-info">
-                    <h3>Trichy Pistachio Velvet</h3>
-                    <p class="desc">Rich roasted pistachios woven into a symphony of elegance.</p>
-                    <p class="price">₹1250</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="custom" style="transition-delay: 0.7s;">
-                <div class="card-img">
-                    <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Floral Cupcakes" style="mix-blend-mode: normal;">
-                </div>
-                <div class="card-info">
-                    <h3>Kumbakonam Rose Petal Cake</h3>
-                    <p class="desc">Beautiful sweet floral cake. Gives a grand look for birthday party photos!</p>
-                    <p class="price">₹950</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <div class="product-card reveal-element" data-category="chocolate" style="transition-delay: 0.8s;">
-                <div class="card-img">
-                    <img src="./assets/nutty_chocolate_cake_1776104211012-nobg.png" alt="Chocolate">
-                </div>
-                <div class="card-info">
-                    <h3>Madurai Cocoa Indulgence</h3>
-                    <p class="desc">Decadent dark chocolate paired with crisp hazelnut praline.</p>
-                    <p class="price">₹850</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            
-            <div class="product-card reveal-element" data-category="chocolate" style="transition-delay: 0.85s;">
-                <div class="card-img">
-                    <img src="./assets/choclate_cake_1-nobg.png" alt="Midnight Velour Cake">
-                </div>
-                <div class="card-info">
-                    <h3>Chettinad Dark Velour</h3>
-                    <p class="desc">Smooth dark chocolate cake. The perfect surprise gift for true chocolate lovers.</p>
-                    <p class="price">₹900</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-
-            <div class="product-card reveal-element" data-category="chocolate" style="transition-delay: 0.9s;">
-                <div class="card-img">
-                    <img src="./assets/dark_Choclate_2-nobg.png" alt="Gold Crown Chocolate">
-                </div>
-                <div class="card-info">
-                    <h3>Thanjavur Crown Velvet</h3>
-                    <p class="desc">Thick chocolate cake topped with sweet pieces. A super hit for birthdays.</p>
-                    <p class="price">₹1000</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-
-            <div class="product-card reveal-element" data-category="chocolate" style="transition-delay: 0.95s;">
-                <div class="card-img">
-                    <img src="./assets/choclate-nobg.png" alt="Caramel Truffle">
-                </div>
-                <div class="card-info">
-                    <h3>Tuticorin Cocoa Truffle</h3>
-                    <p class="desc">Soft chocolate sponge infused with roasted macadamia crunch.</p>
-                    <p class="price">₹850</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            
-            <div class="product-card reveal-element" data-category="chocolate" style="transition-delay: 1.0s;">
-                <div class="card-img">
-                    <img src="./assets/choclate_cake_2-nobg.png" alt="Gold Flake Ganache">
-                </div>
-                <div class="card-info">
-                    <h3>Virudhachalam Mirror Glaze</h3>
-                    <p class="desc">Shiny chocolate cake decorated with gold. Very special for first wedding anniversaries!</p>
-                    <p class="price">₹1250</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-            <!-- ADDITIONAL CAKES -->
-            <div class="product-card reveal-element" data-category="luxury" style="transition-delay: 0.9s;">
-                <div class="card-img">
-                    <img src="./assets/raspberry_cake_1776104471091-nobg.png" alt="Raspberry Cake">
-                </div>
-                <div class="card-info">
-                    <h3>Salem Raspberry Royale</h3>
-                    <p class="desc">A luscious burst of wild raspberries refined into a classic torte.</p>
-                    <p class="price">₹950</p>
-                    <button class="btn-order">Order Your Delight</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Collection -->
-    <section id="featured" class="new-creations theme-rose">
-        <div class="new-container">
-            <div class="new-text reveal-element">
-                <h2 class="gold-text">Discover Our <br> Newest Indulgences</h2>
-                <p>Experience the pinnacle of culinary artistry with our latest seasonal creations, meticulously crafted to elevate your senses.</p>
-                <button class="btn-premium-cta">Reserve Your Masterpiece</button>
-            </div>
-            <div class="new-image reveal-element delay-200">
-                <div class="watermark-text">DELICIOUS<br>DELICIOUS</div>
-                <div class="swiper newCakeSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide card-slide" data-theme="theme-rose">
-                            <img src="./assets/raspberry_cake_1776104471091-nobg.png" alt="Raspberry Cake">
-                            <h3 class="slide-title">Salem Raspberry Royale</h3>
-                        </div>
-                        <div class="swiper-slide card-slide" data-theme="theme-choco">
-                            <img src="./assets/nutty_chocolate_cake_1776104211012-nobg.png" alt="Nutty Chocolate Cake">
-                            <h3 class="slide-title">Madurai Cocoa Indulgence</h3>
-                        </div>
-                        <div class="swiper-slide card-slide" data-theme="theme-vanilla">
-                            <img src="./assets/vanilla_cake_1776104332418-nobg.png" alt="Vanilla Classic">
-                            <h3 class="slide-title">Kodaikanal Vanilla Classic</h3>
-                        </div>
-                        <div class="swiper-slide card-slide" data-theme="theme-peach">
-                            <img src="./assets/strawberry_cake_1776104196224-nobg.png" alt="Strawberry Reverie">
-                            <h3 class="slide-title">Ooty Strawberry Reverie</h3>
-                        </div>
-                    </div>
-                    <!-- Pagination dots below slider -->
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <h2 class="footer-title reveal-element gold-text">Commission Your Bespoke Creation</h2>
-        <div class="footer-grid">
-            <div class="footer-col reveal-element delay-100 map-col">
-                <iframe src="https://maps.google.com/maps?q=Virudhachalam&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div class="footer-col reveal-element delay-100 info-col">
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Virudhachalam, Tamil Nadu</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <h4>Call Us</h4>
-                        <p>+91 87780 77747</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fa-solid fa-clock"></i>
-                    <div>
-                        <h4>Operational Hours</h4>
-                        <p>Mon-Sat: 8AM - 8PM<br>Sun: 9AM - 5PM</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-col social-col reveal-element delay-200">
-                <h4>Connect With Us</h4>
-                <div class="footer-socials">
-                    <a href="tel:8778077747" title="Call Us"><i class="fa-solid fa-phone"></i></a>
-                    <a href="https://wa.me/918778077747" target="_blank" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Delicia Custom Cakes. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Order Modal -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 class="gold-text">Secure Your Artisanal Masterpiece</h2>
-            <p>Connect with our master bakers to commission your personalized luxury cake.</p>
-            <div class="contact-options">
-                <a href="https://wa.me/918778077747" target="_blank" class="contact-btn whatsapp-btn">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp: 8778077747
-                </a>
-                <a href="https://www.instagram.com/zia_cakes_virudhachalam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-btn insta-btn">
-                    <i class="fa-brands fa-instagram"></i> Instagram: @zia_cakes_virudhachalam
-                </a>
-            </div>
-        </div>
+  <!-- ╔══════════════════════════════════════════╗
+       ║  NAVBAR                                  ║
+       ╚══════════════════════════════════════════╝ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html" class="logo-link" aria-label="Zia Cakes — Go to homepage">
+        <span class="logo-wordmark">Zia Cakes</span>
+        <span class="logo-rule" aria-hidden="true"></span>
+        <span class="logo-est">Virudhachalam</span>
+      </a>
     </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <nav class="nav-primary" id="nav-primary" aria-label="Primary navigation">
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="order.html" class="nav-link">Order</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-primary">
+      <span class="h-bar"></span>
+      <span class="h-bar"></span>
+      <span class="h-bar"></span>
+    </button>
+  </header>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  HERO                                    ║
+       ╚══════════════════════════════════════════╝ -->
+  <section id="home" class="hero" aria-label="Hero">
+
+    <!-- Botanical SVG — top right -->
+    <svg class="flourish flourish-tr" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M190 8 Q155 65 118 52 Q95 44 112 28" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.5"/>
+      <path d="M170 4 Q132 72 98 57" stroke="#C9A84C" stroke-width="0.55" fill="none" opacity="0.35"/>
+      <path d="M175 90 Q145 122 112 107 Q90 96 106 80" stroke="#C9A84C" stroke-width="0.65" fill="none" opacity="0.4"/>
+      <circle cx="114" cy="50" r="2.2" fill="#C9A84C" opacity="0.38"/>
+      <circle cx="99" cy="58" r="1.5" fill="#C9A84C" opacity="0.28"/>
+      <circle cx="107" cy="79" r="1.5" fill="#C9A84C" opacity="0.32"/>
+      <path d="M148 155 Q124 180 96 168" stroke="#C9A84C" stroke-width="0.55" fill="none" opacity="0.28"/>
+    </svg>
+
+    <!-- Botanical SVG — bottom left -->
+    <svg class="flourish flourish-bl" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 252 Q48 195 82 208 Q104 216 88 232" stroke="#C9A84C" stroke-width="0.75" fill="none" opacity="0.45"/>
+      <path d="M32 258 Q68 188 104 202" stroke="#C9A84C" stroke-width="0.55" fill="none" opacity="0.32"/>
+      <path d="M6 155 Q36 120 70 137 Q92 148 76 164" stroke="#C9A84C" stroke-width="0.65" fill="none" opacity="0.38"/>
+      <circle cx="85" cy="210" r="2.2" fill="#C9A84C" opacity="0.32"/>
+      <circle cx="101" cy="202" r="1.5" fill="#C9A84C" opacity="0.26"/>
+      <circle cx="77" cy="163" r="1.5" fill="#C9A84C" opacity="0.3"/>
+    </svg>
+
+    <!-- LEFT: Hero Text -->
+    <div class="hero-content" data-aos="hero">
+      <p class="eyebrow">Fresh &nbsp;·&nbsp; Homemade &nbsp;·&nbsp; Delivered to You</p>
+
+      <h1 class="hero-heading">
+        <span class="h1-line">Fresh Cakes,</span>
+        <span class="h1-line h1-italic">Made Daily</span>
+        <span class="h1-line">in Virudhachalam</span>
+      </h1>
+
+      <p class="hero-sub">Birthday &bull; Wedding &bull; Custom Cakes</p>
+      <p class="hero-delivery-pill">Same day delivery available</p>
+
+      <div class="hero-ctas">
+        <a href="https://wa.me/918778077747?text=Hi%20Zia%20Cakes!%20I%20want%20to%20order%20a%20cake." target="_blank" rel="noopener noreferrer" class="btn-primary" id="hero-cta">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a href="#products" class="btn-secondary">
+          View Cakes &rarr;
+        </a>
+      </div>
+
+      <!-- Trust badge cards -->
+      <div class="badges" role="list" aria-label="Trust credentials">
+        <div class="badge" role="listitem">
+          <svg class="bi" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1.5L9.6 5.8H14.2L10.5 8.6L11.8 13L8 10.5L4.2 13L5.5 8.6L1.8 5.8H6.4Z" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          500+ Happy Customers
+        </div>
+        <div class="badge" role="listitem">
+          <svg class="bi" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="6" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+            <path d="M8 5V8.5L10.5 10" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          Same Day Delivery
+        </div>
+        <div class="badge" role="listitem">
+          <svg class="bi" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="2" y="8" width="12" height="6" rx="1" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+            <path d="M5.5 8C5.5 8 6 5.5 8 5.5C10 5.5 10.5 8 10.5 8" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M8 5.5V3.5" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="8" cy="3" r="0.8" fill="#C9A84C"/>
+          </svg>
+          Custom Cake in 24 Hrs
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Cake Carousel in Oval Vignette -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="oval-stage">
+        <div class="oval-glow"></div>
+        <div class="swiper hero-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Chennai Signature Bow Cake" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Kanchipuram Gold Elegance Cake" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Coimbatore Custom Avant-Garde" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Trichy Pistachio Velvet Cake" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Kumbakonam Rose Petal Cake" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="hero-caption">Our Signature Collection &nearr;</p>
+    </div>
+
+  </section>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  MARQUEE                                 ║
+       ╚══════════════════════════════════════════╝ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Fresh Cakes Daily</span>
+      <span class="mdot">&middot;</span>
+      <span>500+ Happy Customers</span>
+      <span class="mdot">&middot;</span>
+      <span>Same Day Delivery</span>
+      <span class="mdot">&middot;</span>
+      <span>Custom Cakes in 24 Hrs</span>
+      <span class="mdot">&middot;</span>
+      <span>Birthday &amp; Wedding Cakes</span>
+      <span class="mdot">&middot;</span>
+      <span>Virudhachalam&rsquo;s Favourite</span>
+      <span class="mdot">&middot;</span>
+      <!-- duplicate for seamless loop -->
+      <span>Fresh Cakes Daily</span>
+      <span class="mdot">&middot;</span>
+      <span>500+ Happy Customers</span>
+      <span class="mdot">&middot;</span>
+      <span>Same Day Delivery</span>
+      <span class="mdot">&middot;</span>
+      <span>Custom Cakes in 24 Hrs</span>
+      <span class="mdot">&middot;</span>
+      <span>Birthday &amp; Wedding Cakes</span>
+      <span class="mdot">&middot;</span>
+      <span>Virudhachalam&rsquo;s Favourite</span>
+      <span class="mdot">&middot;</span>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  PRODUCTS                                ║
+       ╚══════════════════════════════════════════╝ -->
+  <section id="products" class="products-section">
+
+    <header class="section-hd section-hd--left js-reveal">
+      <span class="eyebrow">The Collection</span>
+      <h2 class="section-title">Our Products</h2>
+      <span class="gold-rule" aria-hidden="true"></span>
+    </header>
+
+    <p class="products-urgency js-reveal" style="--d:0.08s">Same day delivery available inside Virudhachalam</p>
+
+    <!-- Filter tabs -->
+    <div class="filters-wrap js-reveal" style="--d:0.12s">
+      <div class="filters" role="tablist" aria-label="Filter by category">
+        <button class="ftab active" data-filter="all"       role="tab" aria-selected="true">All Items</button>
+        <button class="ftab"        data-filter="luxury"   role="tab" aria-selected="false">Luxury Cakes</button>
+        <button class="ftab"        data-filter="custom"   role="tab" aria-selected="false">Custom Creations</button>
+        <button class="ftab"        data-filter="chocolate" role="tab" aria-selected="false">Chocolate</button>
+        <button class="ftab"        data-filter="wedding"  role="tab" aria-selected="false">Wedding</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="pgrid" id="pgrid">
+
+      <article class="pcard js-card" style="--d:0.05s" data-cat="luxury">
+        <div class="pcard-img">
+          <img src="./assets/SaveGram.App_659211954_17967583800049478_5923255156301595047_n-removebg-preview.png" alt="Cream Bow Birthday Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--hot">&#x1F525; Best Seller</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Cream Bow Birthday Cake</h3>
+          <p class="pcard-desc">Soft cream cake with a pretty bow. Great for birthdays.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;1,450</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.12s" data-cat="luxury">
+        <div class="pcard-img">
+          <img src="./assets/SaveGram.App_659908733_17967103896049478_4917054626432555490_n-removebg-preview.png" alt="Gold Tier Wedding Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--pop">&#11088; Popular</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Gold Tier Wedding Cake</h3>
+          <p class="pcard-desc">Elegant multi-layer cake. Makes any wedding extra special.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;2,150</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.19s" data-cat="wedding">
+        <div class="pcard-img">
+          <img src="./assets/vanilla_cake_1776104332418-nobg.png" alt="Vanilla Cream Cake" loading="lazy" />
+          <span class="pcard-tag">Wedding</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Vanilla Cream Cake</h3>
+          <p class="pcard-desc">Simple, soft, and delicious. Everyone loves this one.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;650</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.26s" data-cat="luxury">
+        <div class="pcard-img">
+          <img src="./assets/strawberry_cake_1776104196224-nobg.png" alt="Strawberry Fresh Cream Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--kids">&#x1F382; Kids Favourite</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Strawberry Fresh Cream Cake</h3>
+          <p class="pcard-desc">Sweet strawberry with fresh cream. Kids love it every time!</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;750</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.33s" data-cat="custom">
+        <div class="pcard-img">
+          <img src="./assets/SaveGram.App_670297403_17968343886049478_982868491252944482_n-removebg-preview.png" alt="Custom Design Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--hot">&#x1F525; Best Seller</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Custom Design Cake</h3>
+          <p class="pcard-desc">Tell us your idea — we make it happen. Your cake, your way.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;1,100</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.40s" data-cat="custom">
+        <div class="pcard-img">
+          <img src="./assets/SaveGram.App_670490995_17968343244049478_3192022720668277406_n-removebg-preview.png" alt="Pistachio Butter Cake" loading="lazy" />
+          <span class="pcard-tag">Custom</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Pistachio Butter Cake</h3>
+          <p class="pcard-desc">Real pistachios, soft butter layers. Perfect anniversary gift.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;1,250</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.47s" data-cat="custom">
+        <div class="pcard-img">
+          <img src="./assets/SaveGram.App_671205595_17968452321049478_5270815396611701233_n-removebg-preview.png" alt="Rose Petal Birthday Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--pop">&#11088; Popular</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Rose Petal Birthday Cake</h3>
+          <p class="pcard-desc">Beautiful floral cake. Great for birthdays and surprises.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;950</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.54s" data-cat="chocolate">
+        <div class="pcard-img">
+          <img src="./assets/nutty_chocolate_cake_1776104211012-nobg.png" alt="Nutty Chocolate Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--kids">&#x1F382; Kids Favourite</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Nutty Chocolate Cake</h3>
+          <p class="pcard-desc">Rich chocolate with crunchy nuts. Everyone asks for more.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;850</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.58s" data-cat="chocolate">
+        <div class="pcard-img">
+          <img src="./assets/choclate_cake_1-nobg.png" alt="Dark Chocolate Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--hot">&#x1F525; Best Seller</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Dark Chocolate Cake</h3>
+          <p class="pcard-desc">Smooth and rich. Perfect gift for any chocolate lover.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;900</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.62s" data-cat="chocolate">
+        <div class="pcard-img">
+          <img src="./assets/dark_Choclate_2-nobg.png" alt="Crown Chocolate Birthday Cake" loading="lazy" />
+          <span class="pcard-tag">Chocolate</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Crown Chocolate Birthday Cake</h3>
+          <p class="pcard-desc">Thick chocolate with fun crown. Birthday hit for all ages.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;1,000</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.66s" data-cat="chocolate">
+        <div class="pcard-img">
+          <img src="./assets/choclate-nobg.png" alt="Chocolate Truffle Cake" loading="lazy" />
+          <span class="pcard-tag">Chocolate</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Chocolate Truffle Cake</h3>
+          <p class="pcard-desc">Soft and moist chocolate cake. Always a crowd favourite.</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;850</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard js-card" style="--d:0.70s" data-cat="luxury">
+        <div class="pcard-img">
+          <img src="./assets/raspberry_cake_1776104471091-nobg.png" alt="Raspberry Fresh Cream Cake" loading="lazy" />
+          <span class="pcard-tag pcard-tag--pop">&#11088; Popular</span>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-name">Raspberry Fresh Cream Cake</h3>
+          <p class="pcard-desc">Sweet raspberries with light cream. Refreshing and tasty!</p>
+          <div class="pcard-foot">
+            <span class="pcard-price">&#8377;950</span>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /pgrid -->
+
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  FEATURED                                ║
+       ╚══════════════════════════════════════════╝ -->
+  <section id="featured" class="featured-section" aria-label="Featured Collection">
+
+    <span class="featured-rule-top" aria-hidden="true"></span>
+
+    <div class="featured-inner">
+
+      <!-- Left text -->
+      <div class="featured-text js-reveal">
+        <span class="eyebrow eyebrow--light">Always Fresh</span>
+        <h2 class="section-title section-title--light">
+          Our Most<br>
+          <span class="italic-gold">Loved</span><br>
+          Cakes Right Now
+        </h2>
+        <span class="gold-rule" aria-hidden="true"></span>
+        <p class="featured-desc">
+          These are the cakes our customers keep coming back for.
+          Freshly made every day right here in Virudhachalam.
+        </p>
+        <a href="https://wa.me/918778077747?text=Hi%20Zia%20Cakes!%20I%20want%20to%20order%20a%20cake." target="_blank" rel="noopener noreferrer" class="btn-featured">Order on WhatsApp Now</a>
+      </div>
+
+      <!-- Right: slider -->
+      <div class="featured-slider-wrap js-reveal" style="--d:0.2s">
+        <div class="swiper featured-swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide fslide" data-theme="rose">
+              <div class="fslide-inner">
+                <img src="./assets/raspberry_cake_1776104471091-nobg.png" alt="Salem Raspberry Royale" loading="lazy" />
+                <div class="fslide-label">
+                  <h3>Salem Raspberry Royale</h3>
+                  <span class="fslide-price">&₹950</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide fslide" data-theme="choco">
+              <div class="fslide-inner">
+                <img src="./assets/nutty_chocolate_cake_1776104211012-nobg.png" alt="Madurai Cocoa Indulgence" loading="lazy" />
+                <div class="fslide-label">
+                  <h3>Madurai Cocoa Indulgence</h3>
+                  <span class="fslide-price">&₹850</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide fslide" data-theme="vanilla">
+              <div class="fslide-inner">
+                <img src="./assets/vanilla_cake_1776104332418-nobg.png" alt="Kodaikanal Vanilla Classic" loading="lazy" />
+                <div class="fslide-label">
+                  <h3>Kodaikanal Vanilla Classic</h3>
+                  <span class="fslide-price">&₹650</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide fslide" data-theme="peach">
+              <div class="fslide-inner">
+                <img src="./assets/strawberry_cake_1776104196224-nobg.png" alt="Ooty Strawberry Reverie" loading="lazy" />
+                <div class="fslide-label">
+                  <h3>Ooty Strawberry Reverie</h3>
+                  <span class="fslide-price">&₹750</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination featured-dots"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <span class="featured-rule-btm" aria-hidden="true"></span>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════╗
+    </div><!-- /footer-grid -->
+
+    <div class="footer-btm">
+      <p>&copy; 2026 Zia Cakes, Virudhachalam. All rights reserved.</p>
+      <p class="footer-crafted">Made fresh with love, every single day.</p>
+    </div>
+
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  ORDER MODAL                             ║
+       ╚══════════════════════════════════════════╝ -->
+  <div id="order-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-bd" id="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+          <path d="M16 4L4 16M4 4l12 12"/>
+        </svg>
+      </button>
+      <div class="modal-inner">
+        <span class="eyebrow">Place Your Order</span>
+        <h2 id="modal-title" class="modal-title">
+          Order Your Cake<br><span class="italic-gold">on WhatsApp</span>
+        </h2>
+        <span class="gold-rule" aria-hidden="true"></span>
+        <p class="modal-body">Just tap the WhatsApp button below and tell us what cake you want. We reply fast!</p>
+        <div class="modal-actions">
+          <a href="https://wa.me/918778077747" target="_blank" rel="noopener noreferrer" class="mbtn mbtn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp: 8778077747
+          </a>
+          <a href="https://www.instagram.com/zia_cakes_virudhachalam" target="_blank" rel="noopener noreferrer" class="mbtn mbtn-ig">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @zia_cakes_virudhachalam
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  CUSTOM ORDER FORM                       ║
+       ╚══════════════════════════════════════════╝ -->
+  <section id="order-form" class="orderform-section" aria-label="Place a Custom Cake Order" style="display: none;">
+    <div class="orderform-inner">
+      <div class="orderform-text js-reveal">
+        <span class="eyebrow eyebrow--light">Get Your Cake</span>
+        <h2 class="section-title section-title--light">Order Your<br><span class="italic-gold">Custom Cake</span></h2>
+        <span class="gold-rule" aria-hidden="true"></span>
+        <p class="featured-desc">Fill in the details below and we will send your order straight to WhatsApp. We will confirm within minutes!</p>
+        <div class="form-trust">
+          <span>&#9989; We reply within 15 minutes</span>
+          <span>&#9989; Same day delivery available</span>
+          <span>&#9989; No advance payment required</span>
+        </div>
+      </div>
+      <form class="cake-form js-reveal" id="cake-order-form" style="--d:0.15s" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Your Name <span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" placeholder="e.g. Priya" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="f-phone" name="phone" placeholder="e.g. 9876543210" required autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-cakename">Cake Name <span class="req">*</span></label>
+            <input type="text" id="f-cakename" name="cakename" placeholder="e.g. Chocolate Truffle Cake" required />
+            <div id="f-priceDisplay" style="font-weight: 500; margin-top: 8px; color: var(--gold); display: none;"></div>
+          </div>
+          <div class="form-group">
+            <label for="f-flavour">Flavour <span class="req">*</span></label>
+            <select id="f-flavour" name="flavour" required>
+              <option value="" disabled selected>Select flavour</option>
+              <option value="Chocolate">Chocolate</option>
+              <option value="Vanilla">Vanilla</option>
+              <option value="Strawberry">Strawberry</option>
+              <option value="Butterscotch">Butterscotch</option>
+              <option value="Pineapple">Pineapple</option>
+              <option value="Black Forest">Black Forest</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-size">Size</label>
+            <select id="f-size" name="size">
+              <option value="0.5 kg">0.5 kg &ndash; Small</option>
+              <option value="1 kg" selected>1 kg &ndash; Standard</option>
+              <option value="1.5 kg">1.5 kg</option>
+              <option value="2 kg">2 kg &ndash; Party Size</option>
+              <option value="3 kg+">3 kg+ &ndash; Grand</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-date">Delivery Date <span class="req">*</span></label>
+            <input type="date" id="f-date" name="date" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-message">Message on Cake</label>
+          <input type="text" id="f-message" name="message" placeholder='e.g. "Happy Birthday Asha!"' />
+        </div>
+        <div class="form-group">
+          <label for="f-note">Any Special Requests?</label>
+          <textarea id="f-note" name="note" rows="3" placeholder="e.g. No nuts, add a photo print, specific design idea..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="f-image">Reference Image (optional)</label>
+          <input type="file" id="f-image" name="image" accept="image/*" class="file-input" />
+          <small class="file-hint">Share a design photo if you have one. We&rsquo;ll discuss on WhatsApp.</small>
+        </div>
+        <button type="submit" class="form-submit" id="form-submit-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Order on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  FOOTER / CONTACT  (last section)        ║
+       ╚══════════════════════════════════════════╝ -->
+  <footer id="contact" class="footer" aria-label="Contact and Footer">
+
+    <!-- Botanical flourish -->
+    <svg class="footer-flourish" viewBox="0 0 260 110" fill="none" aria-hidden="true">
+      <path d="M10 90 Q70 44 130 66 Q190 88 248 32" stroke="#C9A84C" stroke-width="0.65" fill="none" opacity="0.32"/>
+      <path d="M30 100 Q88 56 140 74" stroke="#C9A84C" stroke-width="0.5" fill="none" opacity="0.22"/>
+      <circle cx="130" cy="66" r="2.5" fill="#C9A84C" opacity="0.28"/>
+      <circle cx="190" cy="87" r="1.5" fill="#C9A84C" opacity="0.22"/>
+    </svg>
+
+    <header class="footer-hd js-reveal">
+      <span class="eyebrow eyebrow--light">We are Here for You</span>
+      <h2 class="footer-heading">
+        Order Your Cake<br>
+        <span class="italic-gold">on WhatsApp</span>
+      </h2>
+      <span class="gold-rule" aria-hidden="true"></span>
+    </header>
+
+    <div class="footer-grid">
+
+      <!-- Map -->
+      <div class="footer-col fcol-map js-reveal" style="--d:0.1s">
+        <iframe
+          src="https://maps.google.com/maps?q=Virudhachalam&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          title="Zia Cakes Location — Virudhachalam"
+          width="100%" height="100%"
+          style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Info -->
+      <div class="footer-col fcol-info js-reveal" style="--d:0.2s">
+        <h3 class="fcol-title">Find Us</h3>
+        <ul class="clist">
+          <li class="citem">
+            <span class="clabel">Location</span>
+            <span class="cval">Virudhachalam, Tamil Nadu</span>
+          </li>
+          <li class="citem">
+            <span class="clabel">Call Us</span>
+            <a href="tel:8778077747" class="cval cval-link">+91 87780 77747</a>
+          </li>
+          <li class="citem">
+            <span class="clabel">Hours</span>
+            <span class="cval">Mon&ndash;Sat: 8AM &ndash; 8PM<br>Sunday: 9AM &ndash; 5PM</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-col fcol-social js-reveal" style="--d:0.3s">
+        <h3 class="fcol-title">Order Now</h3>
+        <p class="social-intro">The fastest way to order is WhatsApp. Just send us a message and we will confirm your cake!</p>
+        <div class="socials">
+          <a href="https://wa.me/918778077747" target="_blank" rel="noopener noreferrer" class="slink slink-wa" aria-label="WhatsApp Zia Cakes">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="https://www.instagram.com/zia_cakes_virudhachalam" target="_blank" rel="noopener noreferrer" class="slink slink-ig" aria-label="Zia Cakes on Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @zia_cakes_virudhachalam
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /footer-grid -->
+
+    <div class="footer-btm">
+      <p>&copy; 2026 Zia Cakes, Virudhachalam. All rights reserved.</p>
+      <p class="footer-crafted">Made fresh with love, every single day.</p>
+    </div>
+
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  FLOATING WHATSAPP BUTTON                ║
+       ╚══════════════════════════════════════════╝ -->
+  <a href="https://wa.me/918778077747?text=Hi%20Zia%20Cakes!%20I%20want%20to%20order%20a%20cake." target="_blank" rel="noopener noreferrer" class="wa-float" id="wa-float" aria-label="Order on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-float-label">Order Now</span>
+  </a>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
