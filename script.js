@@ -15,20 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── 2. MOBILE NAV TOGGLE ────────────────────────── */
   const navToggle  = document.getElementById('nav-toggle');
   const navPrimary = document.getElementById('nav-primary');
+  const navOverlay = document.getElementById('nav-overlay');
+
+  const openNav = () => {
+    navPrimary.classList.add('open');
+    navOverlay.classList.add('active');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeNav = () => {
+    navPrimary.classList.remove('open');
+    navOverlay.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
 
   navToggle?.addEventListener('click', () => {
-    const isOpen = navPrimary.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const isOpen = navPrimary.classList.contains('open');
+    isOpen ? closeNav() : openNav();
   });
+
+  // Close on overlay click
+  navOverlay?.addEventListener('click', closeNav);
 
   // Close nav on any link click
   navPrimary?.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navPrimary.classList.remove('open');
-      navToggle?.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeNav);
   });
 
   /* ─── 3. SMOOTH SCROLL ────────────────────────────── */
