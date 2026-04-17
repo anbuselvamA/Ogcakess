@@ -2,14 +2,11 @@
    admin.js — Zia Cakes Admin Panel Logic
    ════════════════════════════════════════════════════ */
 
-import { db, storage } from './firebase-config.js';
+import { db } from './firebase-config.js';
 import {
   collection, addDoc, getDocs, doc,
   updateDoc, deleteDoc, query, orderBy, onSnapshot
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import {
-  ref, uploadBytesResumable, getDownloadURL, deleteObject
-} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 /* ──────────────────────────────────
    CONSTANTS
@@ -302,49 +299,53 @@ cakeForm.addEventListener('submit', async (e) => {
 
 /* Upload image to Firebase Storage — with timeout & error fallback */
 function uploadImage(file) {
-  return new Promise((resolve, reject) => {
-    const filename  = `cakes/${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
-    const storageRef = ref(storage, filename);
+  return compressAndEncode(file);
+}
 
-    let task;
-    try {
-      task = uploadBytesResumable(storageRef, file);
-    } catch (err) {
-      console.warn('Storage upload failed, saving without image:', err);
-      resolve(null); // Save cake without image
-      return;
-    }
-
+/* Compress image client-side and return a base64 data URL */
+function compressAndEncode(file) {
+  return new Promise((resolve) => {
     progressWrap.hidden = false;
+    progressLabel.textContent = 'Processing image...';
+    progressBar.style.width = '30%';
 
-    // Timeout — if upload takes more than 15s, skip it
-    const timeout = setTimeout(() => {
-      try { task.cancel(); } catch(_){}
-      console.warn('Upload timed out, saving without image');
-      progressLabel.textContent = '⚠️ Upload timed out — saving without image';
-      resolve(null);
-    }, 15000);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        // Resize to max 800px width/height
+        const MAX = 800;
+        let w = img.width, h = img.height;
+        if (w > MAX || h > MAX) {
+          if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+          else       { w = Math.round(w * MAX / h); h = MAX; }
+        }
 
-    task.on('state_changed',
-      (snap) => {
-        const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
-        progressBar.style.width   = pct + '%';
-        progressLabel.textContent = `Uploading image... ${pct}%`;
-      },
-      (err) => {
-        clearTimeout(timeout);
-        console.warn('Storage upload error, saving without image:', err);
-        progressLabel.textContent = '⚠️ Image upload failed — saving without image';
-        showToast('Image upload failed. Cake saved without image.', 'error');
-        resolve(null); // Don't reject — save cake without image
-      },
-      async () => {
-        clearTimeout(timeout);
-        progressLabel.textContent = '✅ Upload complete!';
-        const url = await getDownloadURL(task.snapshot.ref);
-        resolve(url);
-      }
-    );
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+
+        progressBar.style.width = '70%';
+        progressLabel.textContent = 'Compressing...';
+
+        // Compress to JPEG at 75% quality
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+
+        progressBar.style.width = '100%';
+        progressLabel.textContent = '✅ Image ready!';
+
+        resolve(dataUrl);
+      };
+      img.onerror = () => {
+        progressLabel.textContent = '⚠️ Could not process image';
+        resolve(null);
+      };
+      img.src = e.target.result;
+    };
+    reader.onerror = () => resolve(null);
+    reader.readAsDataURL(file);
   });
 }
 
@@ -415,13 +416,6 @@ deleteConfirm.addEventListener('click', async () => {
   deleteConfirm.textContent = 'Deleting...';
   try {
     await deleteDoc(doc(db, 'cakes', pendingDelete.id));
-    // Also remove image from Storage if it exists
-    if (pendingDelete.imageUrl) {
-      try {
-        const imgRef = ref(storage, pendingDelete.imageUrl);
-        await deleteObject(imgRef);
-      } catch (_) { /* image may have been deleted already */ }
-    }
     showToast('Cake deleted.', 'success');
   } catch (err) {
     showToast('Error: ' + err.message, 'error');
