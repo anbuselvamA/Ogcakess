@@ -571,6 +571,13 @@ ul  { list-style: none; }
   border-color: rgba(201,168,76,0.30);
 }
 
+/* Selected card — gold ring + checkmark feeling */
+.pcard--selected {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px var(--gold), 0 8px 24px rgba(201,168,76,0.18) !important;
+  transform: translateY(-4px);
+}
+
 /* Card image area */
 .pcard-img {
   position: relative; height: 220px;

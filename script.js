@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  /* Each product card "Order Now" → Scroll to Order Form & Pre-fill */
+  /* Each product card "Order" → Highlight card + Auto-fill + Scroll */
   document.querySelectorAll('.btn-order').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -183,25 +183,40 @@ document.addEventListener('DOMContentLoaded', () => {
       let price = card?.querySelector('.pcard-price')?.textContent?.trim() || '';
       price = price.replace('₹', '').trim();
 
+      /* ── 1. Highlight selected card ── */
+      document.querySelectorAll('.pcard').forEach(c => c.classList.remove('pcard--selected'));
+      card?.classList.add('pcard--selected');
+
+      /* ── 2. Auto-fill form fields ── */
       const cakeNameInput = document.getElementById('f-cakename');
       const priceDisplay = document.getElementById('f-priceDisplay');
 
       if (cakeNameInput) {
         cakeNameInput.value = cname;
         cakeNameInput.readOnly = true;
+        cakeNameInput.style.background = 'rgba(201,168,76,0.08)';
+        cakeNameInput.style.borderColor = 'rgba(201,168,76,0.35)';
       }
       if (priceDisplay && price) {
         priceDisplay.textContent = `Price: ₹${price}`;
         priceDisplay.style.display = 'block';
       }
 
+      /* ── 3. Smooth scroll to order form ── */
       const orderForm = document.getElementById('order-form');
       if (orderForm) {
-        orderForm.style.display = 'block'; // Unhide the form contextually
+        orderForm.style.display = 'block';
         
-        // Small delay to allow the browser to paint the unhidden element over its actual height
         setTimeout(() => {
           orderForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Brief pulse to draw attention to the form
+          const formEl = document.getElementById('cake-order-form');
+          if (formEl) {
+            formEl.style.transition = 'box-shadow 0.3s ease';
+            formEl.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.35)';
+            setTimeout(() => { formEl.style.boxShadow = ''; }, 1200);
+          }
         }, 10);
       }
     });

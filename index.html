@@ -526,6 +526,11 @@
         </div>
         <div class="form-row">
           <div class="form-group">
+            <label for="f-cakename">Cake Name <span class="req">*</span></label>
+            <input type="text" id="f-cakename" name="cakename" placeholder="Select a cake above or type here" required />
+            <span id="f-priceDisplay" class="price-display" style="display:none; font-family:var(--serif); font-size:1.1rem; font-weight:700; color:var(--gold); margin-top:4px;"></span>
+          </div>
+          <div class="form-group">
             <label for="f-type">Cake Type <span class="req">*</span></label>
             <select id="f-type" name="type" required>
               <option value="" disabled selected>Select cake type</option>
