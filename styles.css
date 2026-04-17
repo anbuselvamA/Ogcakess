@@ -1199,49 +1199,7 @@ ul  { list-style: none; }
 
   /* Featured stack */
   .featured-inner { grid-template-columns: 1fr; gap: var(--s48); }
-
-  /* Mobile Swiper native scroll override */
-  .featured-swiper {
-    padding: var(--s24) 0 !important;
-    overflow: hidden !important; 
-    touch-action: pan-x pan-y !important;
-  }
-  .featured-swiper .swiper-wrapper {
-    display: flex;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 0 12.5% !important; /* Perfect center logic for 75% width: (100-75)/2 = 12.5% */
-    transform: none !important;
-    width: auto !important;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .featured-swiper .swiper-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-  .featured-swiper .swiper-slide {
-    width: 75% !important; /* ~70-80% card width */
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    transform: none !important; /* Disable swiper coverflow transform */
-    opacity: 1 !important; /* Ensure visibility */
-  }
-  
-  .fslide-inner {
-    transform: none !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
-    border-color: rgba(255,255,255,0.08) !important;
-  }
-  .fslide-inner img {
-    transform: scale(1.02) translateY(-4px) !important;
-    animation: featFloatMobile 4s ease-in-out infinite alternate !important;
-  }
-
-  @keyframes featFloatMobile {
-    from { transform: scale(1.02) translateY(-4px); }
-    to   { transform: scale(1.02) translateY(-10px); }
-  }
+  .fslide { width: 75vw !important; max-width: 320px; }
 
   /* Footer stack */
   .footer-grid { grid-template-columns: 1fr; }

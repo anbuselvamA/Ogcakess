@@ -79,11 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── 7. FEATURED SWIPER ─────────────────────────── */
   if (document.querySelector('.featured-swiper')) {
+    const isMobile = window.innerWidth <= 768;
     new Swiper('.featured-swiper', {
-      effect: 'coverflow',
+      effect: isMobile ? 'slide' : 'coverflow',
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: 'auto',
+      spaceBetween: isMobile ? 20 : 0,
       loop: true,
       speed: 800,
       autoplay: { delay: 4000, disableOnInteraction: false },
