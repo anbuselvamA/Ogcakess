@@ -1142,8 +1142,15 @@ ul  { list-style: none; }
    RESPONSIVE — Mobile (max 768px)
 ══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* SECTION 6: GENERAL MOBILE UX */
-  body { overflow-x: hidden; } /* Ensure nothing breaks bounds */
+  :root {
+    --gutter: 20px;
+  }
+
+  /* SECTION 7: GENERAL MOBILE UX */
+  body { 
+    overflow-x: hidden; 
+    padding-bottom: 76px !important; /* Space for sticky CTA */
+  }
   .section-spacing { padding: var(--s64) 0; }
 
   /* Show hamburger & overlay nav */
@@ -1165,7 +1172,7 @@ ul  { list-style: none; }
     display: flex;
     flex-direction: column;
     padding-top: 100px; padding-bottom: var(--s64);
-    gap: var(--s32);
+    gap: var(--s24);
     background: linear-gradient(180deg, #FDF6EC 0%, #F5EBE0 100%);
   }
   .hero-content { 
@@ -1185,13 +1192,16 @@ ul  { list-style: none; }
 
   /* SECTION 4: BUTTONS & CTA FIX */
   .hero-ctas { flex-direction: column; gap: var(--s16); width: 100%; }
-  .btn { width: 100% !important; justify-content: center !important; padding: 16px 24px !important; font-size: 1rem !important; }
-  .btn-cta { width: 100% !important; justify-content: center !important; padding: 18px 24px !important; font-size: 1.15rem !important; }
+  .btn-primary, .btn-secondary, .btn-cta, .btn-order, .btn-featured, .btn-loved, .form-submit { 
+    width: 100% !important; 
+    justify-content: center !important; 
+    min-height: 44px;
+    padding: 16px 24px !important;
+  }
 
   /* SECTION 3: PRODUCTS GRID FIX (1 Col) */
-  .pgrid { grid-template-columns: 1fr !important; gap: var(--s24) !important; }
+  .pgrid { grid-template-columns: 1fr !important; gap: 20px !important; }
   .pgrid .pcard { margin-top: 0 !important; width: 100%; }
-  .btn-order { padding: 16px 20px !important; font-size: 1rem !important; width: 100% !important; }
   
   /* Filter pills become scrollable row */
   .filters { flex-wrap: nowrap; overflow-x: auto; width: 100%; border-radius: 12px; padding: 6px 8px; scrollbar-width: none; }
@@ -1199,12 +1209,38 @@ ul  { list-style: none; }
   .ftab { flex-shrink: 0; padding: 10px 18px; }
   .products-urgency { width: 100%; justify-content: center; }
 
-  /* Most Loved — stack */
-  .loved-inner { grid-template-columns: 1fr; gap: var(--s48); }
-  .loved-slide { width: 85vw !important; max-width: 320px; }
-  .btn-loved { width: 100% !important; justify-content: center; margin-top: var(--s24); }
+  /* SECTION 2: MOST LOVED CAKES */
+  .loved-inner { grid-template-columns: 1fr; gap: var(--s32); }
+  
+  .loved-swiper { 
+    overflow: hidden !important; 
+    padding: var(--s24) 0 !important; 
+  }
+  .loved-swiper .swiper-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 0 10vw !important;
+    transform: none !important;
+    width: 100% !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    pointer-events: auto !important;
+  }
+  .loved-swiper .swiper-wrapper::-webkit-scrollbar { display: none; }
+  
+  .loved-slide {
+    width: 80vw !important; 
+    max-width: 300px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    transform: none !important;
+  }
 
-  /* SECTION 2: FEATURED SECTION FIX (Native Horizontal Scroll) */
+  /* FEATURED SECTION FIX (Native Horizontal Scroll) */
   .featured-inner { grid-template-columns: 1fr; gap: var(--s32); }
 
   .featured-swiper {
@@ -1247,27 +1283,30 @@ ul  { list-style: none; }
     aspect-ratio: auto !important;
   }
   
+  .fslide-label { padding: var(--s24) !important; }
+
+  /* SECTION 8: PERFORMANCE FIXES */
   .fslide-inner img {
     height: 180px !important;
     width: auto !important;
     left: 50% !important;
-    top: -30px !important; /* Floating out of card */
+    top: -30px !important; 
     transform: translateX(-50%) !important;
-    animation: featFloatMobile 4s ease-in-out infinite alternate !important;
+    animation: none !important; /* Disable heavy animation */
   }
-  
-  @keyframes featFloatMobile {
-    from { transform: translateX(-50%) translateY(0); }
-    to   { transform: translateX(-50%) translateY(-10px); }
-  }
-  .fslide-label { padding: var(--s24) !important; }
+  .hero-swiper .swiper-slide-active img { animation: none !important; transform: none !important; }
+  .loved-slide.swiper-slide-active .lslide-inner { transform: none !important; box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important; border-color: rgba(255,255,255,0.1) !important;}
+  .loved-slide.swiper-slide-active .lslide-inner img { transform: none !important; }
+  .pcard:hover { transform: none !important; box-shadow: 0 4px 16px rgba(44,26,14,0.05) !important; border-color: rgba(44,26,14,0.07) !important;}
 
   /* SECTION 5: ORDER FORM FIX */
   .order-grid { grid-template-columns: 1fr; gap: var(--s32); }
-  .form-grid { grid-template-columns: 1fr !important; gap: var(--s24) !important; display: flex; flex-direction: column; }
-  .form-input { 
+  .form-row { grid-template-columns: 1fr !important; gap: var(--s20) !important; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea { 
     width: 100% !important; 
-    padding: 16px !important; /* Touch-friendly size */
+    padding: 16px !important; 
     font-size: 1.05rem !important; 
   }
   .form-group label { margin-bottom: var(--s8); font-size: 0.95rem; }
@@ -1279,6 +1318,34 @@ ul  { list-style: none; }
 
   /* Modal */
   .modal-box { padding: var(--s40) var(--s24); width: 90vw; }
+
+  /* Modals etc bottom block merged classes */
+  .about-inner     { grid-template-columns: 1fr; }
+  .why-grid        { grid-template-columns: 1fr 1fr; }
+  .reviews-grid    { grid-template-columns: 1fr; }
+  .reviews-grid .rcard:nth-child(5) { grid-column: auto; }
+  .cake-form       { padding: var(--s24); }
+
+  /* SECTION 6: STICKY CTA */
+  .wa-float-label  { display: inline-block !important; font-size: 1rem !important; }
+  .wa-float { 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 16px !important;
+    justify-content: center !important;
+    z-index: 1500;
+    margin: 0;
+    transform: none !important;
+    animation: none !important;
+  }
+  .wa-float:hover {
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1579,16 +1646,7 @@ ul  { list-style: none; }
 /* ══════════════════════════════════════════════════════
    RESPONSIVE — New sections (mobile ≤768px)
 ══════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .about-inner     { grid-template-columns: 1fr; }
-  .why-grid        { grid-template-columns: 1fr 1fr; }
-  .reviews-grid    { grid-template-columns: 1fr; }
-  .reviews-grid .rcard:nth-child(5) { grid-column: auto; }
-  .form-row        { grid-template-columns: 1fr; }
-  .cake-form       { padding: var(--s24); }
-  .wa-float-label  { display: none; }
-  .wa-float        { padding: 16px; border-radius: 50%; }
-}
+/* Second max-width: 768px block merged into the one above for cleaner architecture */
 
 @media (max-width: 480px) {
   .why-grid { grid-template-columns: 1fr; }
