@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zia Cakes — Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ── -->
+<div id="login-screen" class="login-screen">
+  <div class="login-card">
+    <div class="login-brand">
+      <span class="login-logo">Zia Cakes</span>
+      <span class="login-sub">Admin Panel</span>
+    </div>
+    <form id="login-form" novalidate>
+      <div class="field-group">
+        <label for="admin-pass">Password</label>
+        <input type="password" id="admin-pass" placeholder="Enter admin password" autocomplete="current-password" />
+      </div>
+      <p id="login-error" class="login-error" hidden>Incorrect password. Try again.</p>
+      <button type="submit" class="btn-login">Enter Admin</button>
+    </form>
+    <p class="login-hint">🔒 This page is for Zia Cakes owner only.</p>
+  </div>
+</div>
+
+<!-- ── ADMIN DASHBOARD ── -->
+<div id="admin-app" class="admin-app" hidden>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="sb-logo">🎂</span>
+      <div>
+        <strong>Zia Cakes</strong>
+        <small>Admin Panel</small>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="snav-btn active" data-view="dashboard">📊 Dashboard</button>
+      <button class="snav-btn" data-view="add-cake">➕ Add New Cake</button>
+      <a href="index.html" target="_blank" class="snav-btn snav-link">🌐 View Website</a>
+    </nav>
+    <button id="logout-btn" class="logout-btn">🚪 Logout</button>
+  </aside>
+
+  <!-- Main content -->
+  <main class="admin-main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1 id="page-title" class="topbar-title">Dashboard</h1>
+      <button class="btn-add-top" id="btn-add-top">+ Add New Cake</button>
+    </div>
+
+    <!-- ─── DASHBOARD VIEW ─── -->
+    <section id="view-dashboard" class="view active">
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num" id="stat-total">0</span>
+          <span class="stat-label">Total Cakes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-visible">0</span>
+          <span class="stat-label">Visible on Site</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-hidden">0</span>
+          <span class="stat-label">Hidden</span>
+        </div>
+      </div>
+
+      <div class="section-bar">
+        <h2>All Cakes</h2>
+        <input type="search" id="search-cakes" placeholder="Search cakes..." class="search-inp" />
+      </div>
+
+      <div class="cakes-grid" id="cakes-grid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading cakes...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ADD / EDIT CAKE VIEW ─── -->
+    <section id="view-add-cake" class="view" hidden>
+      <div class="form-wrap">
+        <div class="form-header">
+          <h2 id="form-heading">Add New Cake</h2>
+          <p id="form-subheading">Fill in the details below. The cake will appear on the website instantly after saving.</p>
+        </div>
+
+        <form id="cake-form" novalidate>
+          <input type="hidden" id="edit-id" />
+
+          <!-- Image upload -->
+          <div class="img-upload-area" id="img-upload-area">
+            <div id="img-preview-wrap">
+              <img id="img-preview" src="" alt="" hidden />
+              <div id="img-placeholder">
+                <span>📷</span>
+                <p>Click to upload cake image</p>
+                <small>JPG, PNG, WebP — max 5MB</small>
+              </div>
+            </div>
+            <input type="file" id="cake-image" accept="image/*" hidden />
+          </div>
+          <p id="img-error" class="field-error" hidden>Please upload a cake image.</p>
+
+          <!-- Row 1: Name + Price -->
+          <div class="form-row-2">
+            <div class="field-group">
+              <label for="cake-name">Cake Name <span class="req">*</span></label>
+              <input type="text" id="cake-name" placeholder="e.g. Dark Chocolate Cake" required />
+              <p class="field-error" hidden>Cake name is required.</p>
+            </div>
+            <div class="field-group">
+              <label for="cake-price">Price (₹) <span class="req">*</span></label>
+              <input type="number" id="cake-price" placeholder="e.g. 850" min="1" required />
+              <p class="field-error" hidden>Enter a valid price.</p>
+            </div>
+          </div>
+
+          <!-- Row 2: Old Price + Category -->
+          <div class="form-row-2">
+            <div class="field-group">
+              <label for="cake-old-price">Old Price (₹) <small>optional — shows strikethrough</small></label>
+              <input type="number" id="cake-old-price" placeholder="e.g. 1100" min="1" />
+            </div>
+            <div class="field-group">
+              <label for="cake-cat">Category <span class="req">*</span></label>
+              <select id="cake-cat" required>
+                <option value="" disabled selected>Select category</option>
+                <option value="luxury">Luxury Cakes</option>
+                <option value="custom">Custom Creations</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="wedding">Wedding</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 3: Badge + Rating -->
+          <div class="form-row-2">
+            <div class="field-group">
+              <label for="cake-badge">Badge <small>optional</small></label>
+              <select id="cake-badge">
+                <option value="">None</option>
+                <option value="hot">🔥 Best Seller</option>
+                <option value="pop">⭐ Popular</option>
+                <option value="kids">🎂 Kids Favourite</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="cake-rating">Rating <small>e.g. 4.8</small></label>
+              <input type="number" id="cake-rating" placeholder="4.8" min="1" max="5" step="0.1" />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="field-group">
+            <label for="cake-desc">Description <small>optional — shown on desktop cards</small></label>
+            <textarea id="cake-desc" rows="2" placeholder="e.g. Smooth and rich. Perfect for chocolate lovers."></textarea>
+          </div>
+
+          <!-- Visibility toggle -->
+          <div class="field-group toggle-group">
+            <label class="toggle-label">
+              <input type="checkbox" id="cake-visible" checked />
+              <span class="toggle-track"></span>
+              <span class="toggle-text">Visible on website</span>
+            </label>
+            <small>Turn off to hide this cake without deleting it.</small>
+          </div>
+
+          <!-- Upload progress -->
+          <div id="upload-progress-wrap" hidden>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" id="upload-progress-bar"></div>
+            </div>
+            <p class="progress-label" id="upload-progress-label">Uploading image... 0%</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
+            <button type="submit" class="btn-save" id="btn-save">
+              <span id="save-label">💾 Save & Publish</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ── DELETE CONFIRM MODAL ── -->
+<div id="delete-modal" class="modal-overlay" hidden>
+  <div class="modal-box">
+    <h3>Delete Cake?</h3>
+    <p id="delete-modal-name"></p>
+    <p class="modal-warn">This cannot be undone. The cake will be removed from the website immediately.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="delete-cancel">Cancel</button>
+      <button class="btn-delete-confirm" id="delete-confirm">Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
+<div id="admin-toast" class="admin-toast" hidden></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
