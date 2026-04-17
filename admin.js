@@ -300,14 +300,30 @@ cakeForm.addEventListener('submit', async (e) => {
   }
 });
 
-/* Upload image to Firebase Storage */
+/* Upload image to Firebase Storage — with timeout & error fallback */
 function uploadImage(file) {
   return new Promise((resolve, reject) => {
     const filename  = `cakes/${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
     const storageRef = ref(storage, filename);
-    const task = uploadBytesResumable(storageRef, file);
+
+    let task;
+    try {
+      task = uploadBytesResumable(storageRef, file);
+    } catch (err) {
+      console.warn('Storage upload failed, saving without image:', err);
+      resolve(null); // Save cake without image
+      return;
+    }
 
     progressWrap.hidden = false;
+
+    // Timeout — if upload takes more than 15s, skip it
+    const timeout = setTimeout(() => {
+      try { task.cancel(); } catch(_){}
+      console.warn('Upload timed out, saving without image');
+      progressLabel.textContent = '⚠️ Upload timed out — saving without image';
+      resolve(null);
+    }, 15000);
 
     task.on('state_changed',
       (snap) => {
@@ -315,8 +331,15 @@ function uploadImage(file) {
         progressBar.style.width   = pct + '%';
         progressLabel.textContent = `Uploading image... ${pct}%`;
       },
-      reject,
+      (err) => {
+        clearTimeout(timeout);
+        console.warn('Storage upload error, saving without image:', err);
+        progressLabel.textContent = '⚠️ Image upload failed — saving without image';
+        showToast('Image upload failed. Cake saved without image.', 'error');
+        resolve(null); // Don't reject — save cake without image
+      },
       async () => {
+        clearTimeout(timeout);
         progressLabel.textContent = '✅ Upload complete!';
         const url = await getDownloadURL(task.snapshot.ref);
         resolve(url);
