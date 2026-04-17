@@ -1142,10 +1142,12 @@ ul  { list-style: none; }
    RESPONSIVE — Mobile (max 768px)
 ══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Show hamburger */
-  .nav-toggle { display: flex; }
+  /* SECTION 6: GENERAL MOBILE UX */
+  body { overflow-x: hidden; } /* Ensure nothing breaks bounds */
+  .section-spacing { padding: var(--s64) 0; }
 
-  /* Full-screen nav overlay */
+  /* Show hamburger & overlay nav */
+  .nav-toggle { display: flex; }
   .nav-primary {
     position: fixed; inset: 0;
     background: var(--cream);
@@ -1158,104 +1160,99 @@ ul  { list-style: none; }
   .nav-links { flex-direction: column; align-items: center; gap: var(--s32); }
   .nav-link { font-size: 1.5rem; letter-spacing: 0.06em; opacity: 0.82; }
 
-  /* Stack hero */
+  /* SECTION 1: HERO FIX (Text First, Image Below) */
   .hero {
-    grid-template-columns: 1fr;
-    padding-top: 100px; padding-bottom: var(--s80);
-    gap: var(--s40);
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px; padding-bottom: var(--s64);
+    gap: var(--s32);
     background: linear-gradient(180deg, #FDF6EC 0%, #F5EBE0 100%);
   }
-  .hero-visual { order: -1; margin-right: 0; }
-  .oval-stage { width: clamp(200px, 72vw, 340px); }
-  .hero-heading { font-size: clamp(2.2rem, 9vw, 3rem); }
-  .hero-content { max-width: 100%; }
-  /* Full-width buttons on mobile */
-  .hero-ctas { flex-direction: column; gap: var(--s12); }
-  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-  .btn-cta { width: 100%; justify-content: center; }
-  /* Stack trust badges vertically */
-  .badges { flex-direction: column; align-items: flex-start; gap: var(--s8); }
-  .badge { width: 100%; }
+  .hero-content { 
+    order: 1; /* Headline & CTA first */
+    max-width: 100%; 
+    display: flex; flex-direction: column;
+  }
+  .hero-visual { 
+    order: 2; /* Cake Image second */
+    margin-right: 0; 
+  }
+  .oval-stage { width: clamp(240px, 80vw, 340px); }
+  .hero-heading { font-size: clamp(2.2rem, 9vw, 3rem); margin-bottom: var(--s16); }
+  .badges { flex-direction: column; align-items: flex-start; gap: var(--s8); margin-bottom: var(--s24); }
+  .badge { width: 100%; justify-content: flex-start; }
   .hero-delivery-pill { margin-bottom: var(--s24); }
 
-  /* Products 2-col on mobile */
-  .pgrid { grid-template-columns: repeat(2, 1fr); gap: var(--s16); }
-  .pgrid .pcard:nth-child(3n+2),
-  .pgrid .pcard:nth-child(3n+3),
-  .pgrid .pcard:nth-child(4n+2),
-  .pgrid .pcard:nth-child(4n+3),
-  .pgrid .pcard:nth-child(4n+4) { margin-top: 0; }
-  /* Bigger tap targets on mobile */
-  .btn-order { padding: 12px 18px; font-size: 0.72rem; }
+  /* SECTION 4: BUTTONS & CTA FIX */
+  .hero-ctas { flex-direction: column; gap: var(--s16); width: 100%; }
+  .btn { width: 100% !important; justify-content: center !important; padding: 16px 24px !important; font-size: 1rem !important; }
+  .btn-cta { width: 100% !important; justify-content: center !important; padding: 18px 24px !important; font-size: 1.15rem !important; }
+
+  /* SECTION 3: PRODUCTS GRID FIX (1 Col) */
+  .pgrid { grid-template-columns: 1fr !important; gap: var(--s24) !important; }
+  .pgrid .pcard { margin-top: 0 !important; width: 100%; }
+  .btn-order { padding: 16px 20px !important; font-size: 1rem !important; width: 100% !important; }
+  
   /* Filter pills become scrollable row */
-  .filters { flex-wrap: nowrap; overflow-x: auto; width: 100%; border-radius: 12px; padding: 6px 8px; }
-  .ftab { flex-shrink: 0; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; width: 100%; border-radius: 12px; padding: 6px 8px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .ftab { flex-shrink: 0; padding: 10px 18px; }
   .products-urgency { width: 100%; justify-content: center; }
 
   /* Most Loved — stack */
   .loved-inner { grid-template-columns: 1fr; gap: var(--s48); }
-  .loved-slide { width: 240px !important; }
-  .btn-loved { width: 100%; justify-content: center; }
+  .loved-slide { width: 85vw !important; max-width: 320px; }
+  .btn-loved { width: 100% !important; justify-content: center; margin-top: var(--s24); }
 
-  /* Featured stack */
-  .featured-inner { grid-template-columns: 1fr; gap: var(--s48); }
+  /* SECTION 2: FEATURED SECTION FIX (Native Horizontal Scroll) */
+  .featured-inner { grid-template-columns: 1fr; gap: var(--s32); }
 
-  /* FIX: Mobile Layout - Native Horizontal Scroll */
   .featured-swiper {
     padding: var(--s24) 0 var(--s64) !important;
     overflow: hidden !important; 
   }
-  
   .featured-swiper .swiper-wrapper {
     display: flex !important;
-    align-items: center !important; /* Center active cake using flexbox */
+    align-items: center !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
-    gap: 16px !important;
+    gap: 20px !important;
     padding: 0 12.5vw !important; /* Perfect center logic for 75vw card */
-    transform: none !important; /* Disable swiper drag offset */
+    transform: none !important; /* Disable swiper JS */
     width: 100% !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
     pointer-events: auto !important;
   }
-  .featured-swiper .swiper-wrapper::-webkit-scrollbar {
-    display: none;
-  }
+  .featured-swiper .swiper-wrapper::-webkit-scrollbar { display: none; }
   
   .featured-swiper .swiper-slide {
-    width: 75vw !important;
+    width: 75vw !important; 
     max-width: 320px !important;
     flex-shrink: 0 !important;
     scroll-snap-align: center !important;
-    transform: none !important; /* Disable heavy scaling effects */
+    transform: none !important; 
     opacity: 1 !important;
   }
   
-  /* Critical: Hide background clones so native scroll starts cleanly on the real first slide */
-  .featured-swiper .swiper-slide-duplicate {
-    display: none !important;
-  }
+  .featured-swiper .swiper-slide-duplicate { display: none !important; }
 
-  /* Adjust inner card so cake pops out cleanly */
   .fslide-inner {
     transform: none !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12) !important;
     overflow: visible !important;
-    padding-top: 140px !important; /* Space for the cake image */
+    padding-top: 140px !important;
     justify-content: flex-end;
     aspect-ratio: auto !important;
   }
   
-  /* Center cake images clearly */
   .fslide-inner img {
     height: 180px !important;
     width: auto !important;
     left: 50% !important;
-    top: -20px !important; /* Floating peek effect out of the top of the card */
+    top: -30px !important; /* Floating out of card */
     transform: translateX(-50%) !important;
-    /* Simplified mobile floating effect */
     animation: featFloatMobile 4s ease-in-out infinite alternate !important;
   }
   
@@ -1263,19 +1260,25 @@ ul  { list-style: none; }
     from { transform: translateX(-50%) translateY(0); }
     to   { transform: translateX(-50%) translateY(-10px); }
   }
+  .fslide-label { padding: var(--s24) !important; }
 
-  /* Reset label spacing */
-  .fslide-label {
-    padding: var(--s24) var(--s24) var(--s24) !important;
+  /* SECTION 5: ORDER FORM FIX */
+  .order-grid { grid-template-columns: 1fr; gap: var(--s32); }
+  .form-grid { grid-template-columns: 1fr !important; gap: var(--s24) !important; display: flex; flex-direction: column; }
+  .form-input { 
+    width: 100% !important; 
+    padding: 16px !important; /* Touch-friendly size */
+    font-size: 1.05rem !important; 
   }
+  .form-group label { margin-bottom: var(--s8); font-size: 0.95rem; }
 
   /* Footer stack */
-  .footer-grid { grid-template-columns: 1fr; }
-  .fcol-map { grid-column: auto; min-height: 200px; }
-  .footer-btm { flex-direction: column; align-items: center; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--s40); }
+  .fcol-map { grid-column: auto; min-height: 240px; width: 100%; }
+  .footer-btm { flex-direction: column; align-items: center; text-align: center; gap: var(--s24); }
 
   /* Modal */
-  .modal-box { padding: var(--s40) var(--s24); }
+  .modal-box { padding: var(--s40) var(--s24); width: 90vw; }
 }
 
 /* ══════════════════════════════════════════════════════
