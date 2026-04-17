@@ -1199,7 +1199,75 @@ ul  { list-style: none; }
 
   /* Featured stack */
   .featured-inner { grid-template-columns: 1fr; gap: var(--s48); }
-  .fslide { width: 75vw !important; max-width: 320px; }
+
+  /* FIX: Mobile Layout - Native Horizontal Scroll */
+  .featured-swiper {
+    padding: var(--s24) 0 var(--s64) !important;
+    overflow: hidden !important; 
+  }
+  
+  .featured-swiper .swiper-wrapper {
+    display: flex !important;
+    align-items: center !important; /* Center active cake using flexbox */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 0 12.5vw !important; /* Perfect center logic for 75vw card */
+    transform: none !important; /* Disable swiper drag offset */
+    width: 100% !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    pointer-events: auto !important;
+  }
+  .featured-swiper .swiper-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .featured-swiper .swiper-slide {
+    width: 75vw !important;
+    max-width: 320px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    transform: none !important; /* Disable heavy scaling effects */
+    opacity: 1 !important;
+  }
+  
+  /* Critical: Hide background clones so native scroll starts cleanly on the real first slide */
+  .featured-swiper .swiper-slide-duplicate {
+    display: none !important;
+  }
+
+  /* Adjust inner card so cake pops out cleanly */
+  .fslide-inner {
+    transform: none !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
+    overflow: visible !important;
+    padding-top: 140px !important; /* Space for the cake image */
+    justify-content: flex-end;
+    aspect-ratio: auto !important;
+  }
+  
+  /* Center cake images clearly */
+  .fslide-inner img {
+    height: 180px !important;
+    width: auto !important;
+    left: 50% !important;
+    top: -20px !important; /* Floating peek effect out of the top of the card */
+    transform: translateX(-50%) !important;
+    /* Simplified mobile floating effect */
+    animation: featFloatMobile 4s ease-in-out infinite alternate !important;
+  }
+  
+  @keyframes featFloatMobile {
+    from { transform: translateX(-50%) translateY(0); }
+    to   { transform: translateX(-50%) translateY(-10px); }
+  }
+
+  /* Reset label spacing */
+  .fslide-label {
+    padding: var(--s24) var(--s24) var(--s24) !important;
+  }
 
   /* Footer stack */
   .footer-grid { grid-template-columns: 1fr; }
