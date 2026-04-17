@@ -1190,36 +1190,139 @@ ul  { list-style: none; }
   .nav-links { flex-direction: column; align-items: center; gap: var(--s32); }
   .nav-link { font-size: 1.5rem; letter-spacing: 0.06em; opacity: 0.82; }
 
-  /* SECTION 1: HERO FIX (Text First, Image Below) */
+  /* ── HERO: Premium polish ── */
   .hero {
     display: flex;
     flex-direction: column;
-    padding-top: 100px; padding-bottom: var(--s64);
-    gap: var(--s24);
-    background: linear-gradient(180deg, #FDF6EC 0%, #F5EBE0 100%);
+    padding-top: 88px;
+    padding-bottom: 40px;
+    gap: 20px;
+    background: linear-gradient(170deg, #FDF6EC 0%, #F5EBE0 100%);
   }
-  .hero-content { 
-    order: 1; /* Headline & CTA first */
-    max-width: 100%; 
-    display: flex; flex-direction: column;
+  .hero-content {
+    order: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* children control their own spacing */
   }
-  .hero-visual { 
-    order: 2; /* Cake Image second */
-    margin-right: 0; 
+  .hero-visual {
+    order: 2;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
   }
-  .oval-stage { width: clamp(240px, 80vw, 340px); }
-  .hero-heading { font-size: clamp(2.2rem, 9vw, 3rem); margin-bottom: var(--s16); }
-  .badges { flex-direction: column; align-items: flex-start; gap: var(--s8); margin-bottom: var(--s24); }
-  .badge { width: 100%; justify-content: flex-start; }
-  .hero-delivery-pill { margin-bottom: var(--s24); }
 
-  /* SECTION 4: BUTTONS & CTA FIX */
-  .hero-ctas { flex-direction: column; gap: var(--s16); width: 100%; }
-  .btn-primary, .btn-secondary, .btn-cta, .btn-order, .btn-featured, .btn-loved, .form-submit { 
-    width: 100% !important; 
-    justify-content: center !important; 
-    min-height: 44px;
-    padding: 16px 24px !important;
+  /* Eyebrow — smaller, lighter */
+  .hero-content > .eyebrow {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 10px !important;
+    opacity: 0.65;
+  }
+
+  /* Headline — dominant */
+  .hero-heading {
+    font-size: clamp(2rem, 8.5vw, 2.8rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Sub text — lighter, tighter */
+  .hero-sub {
+    font-size: 0.78rem !important;
+    opacity: 0.6;
+    margin-bottom: 6px !important;
+  }
+
+  /* Delivery pill — compact */
+  .hero-delivery-pill {
+    font-size: 0.72rem !important;
+    padding: 6px 14px !important;
+    margin-bottom: 20px !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+    align-self: flex-start;
+  }
+
+  /* Cake image oval — controlled size */
+  .oval-stage {
+    width: clamp(220px, 75vw, 300px);
+    filter: drop-shadow(0 16px 32px rgba(44,26,14,0.12));
+  }
+
+  /* ── TRUST BADGES: Inline compact row ── */
+  .badges {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 20px !important;
+  }
+  .badge {
+    width: auto !important;
+    flex: 0 1 auto !important;
+    padding: 6px 12px !important;
+    font-size: 0.65rem !important;
+    gap: 5px !important;
+    border-radius: 100px !important;
+    background: rgba(201,168,76,0.08) !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+    box-shadow: none !important;
+  }
+  .bi {
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0;
+  }
+
+  /* ── BUTTONS & CTA: Premium hierarchy ── */
+  .hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  /* Primary WhatsApp button — strong green */
+  .btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 52px !important;
+    padding: 14px 24px !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 14px !important;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.28) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  .btn-primary:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 3px 10px rgba(37,211,102,0.2) !important;
+  }
+
+  /* Secondary 'View Cakes' — clean outline, smaller */
+  .btn-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 11px 20px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.06em !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    color: var(--espresso) !important;
+    border: 1.5px solid rgba(44,26,14,0.22) !important;
+    box-shadow: none !important;
+  }
+  .btn-secondary:active { opacity: 0.65 !important; }
+
+  /* All other CTA buttons — standard full width */
+  .btn-cta, .btn-order, .btn-featured, .btn-loved, .form-submit {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 14px 24px !important;
   }
 
   /* SECTION 3: PRODUCTS GRID — 2-Column E-Commerce App Style */
