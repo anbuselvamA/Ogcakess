@@ -5,7 +5,7 @@
 
 import { db } from './firebase-config.js';
 import {
-  collection, query, where, orderBy, onSnapshot
+  collection, query, onSnapshot
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 const pgrid   = document.getElementById('pgrid');
@@ -144,21 +144,30 @@ document.querySelectorAll('.ftab').forEach(tab => {
 });
 
 /* ──── Live listener — updates on any change ──── */
-const q = query(
-  collection(db, 'cakes'),
-  where('visible', '==', true),
-  orderBy('createdAt', 'desc')
-);
+try {
+  const q = query(collection(db, 'cakes'));
 
-onSnapshot(q, (snap) => {
-  const cakes = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  onSnapshot(q, (snap) => {
+    let cakes = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    // Filter visible cakes & sort by createdAt (newest first)
+    cakes = cakes
+      .filter(c => c.visible !== false)
+      .sort((a, b) => {
+        const ta = a.createdAt?.seconds || 0;
+        const tb = b.createdAt?.seconds || 0;
+        return tb - ta;
+      });
+    if (loading) loading.remove();
+    renderCakes(cakes);
+  }, (err) => {
+    console.error('products-loader:', err);
+    if (loading) loading.remove();
+    pgrid.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:#c00;">
+        <p>⚠️ Could not load products. Please check Firebase setup.</p>
+      </div>`;
+  });
+} catch (err) {
+  console.error('products-loader init error:', err);
   if (loading) loading.remove();
-  renderCakes(cakes);
-}, (err) => {
-  console.error('products-loader:', err);
-  if (loading) loading.remove();
-  pgrid.innerHTML = `
-    <div style="grid-column:1/-1;text-align:center;padding:40px;color:#c00;">
-      <p>⚠️ Could not load products. Please check the Firebase setup in <strong>firebase-config.js</strong>.</p>
-    </div>`;
-});
+}
