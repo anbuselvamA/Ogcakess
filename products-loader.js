@@ -33,12 +33,12 @@ function buildCard(cake, idx) {
     ? `<span class="pcard-old-price">&#8377;${Number(cake.oldPrice).toLocaleString('en-IN')}</span>`
     : '';
 
-  const imgHTML = cake.imageUrl
+  const imgHTML = (cake.imageUrl && cake.imageUrl.length > 10)
     ? `<img src="${cake.imageUrl}" alt="${cake.name}" loading="lazy" />`
     : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;">🎂</div>`;
 
   return `
-  <article class="pcard js-card" style="--d:${delay}s" data-cat="${cake.category || 'all'}" data-id="${cake.id}">
+  <article class="pcard" style="--d:${delay}s" data-cat="${cake.category || 'all'}" data-id="${cake.id}">
     <div class="pcard-img">
       ${imgHTML}
       ${badgeHTML}
@@ -71,6 +71,9 @@ function renderCakes(cakes) {
   }
 
   pgrid.innerHTML = cakes.map((cake, i) => buildCard(cake, i)).join('');
+
+  /* Make all cards immediately visible (no scroll observer needed) */
+  pgrid.querySelectorAll('.pcard').forEach(card => card.classList.add('visible'));
 
   /* Re-attach the Order button auto-fill behavior */
   pgrid.querySelectorAll('.btn-order').forEach(btn => {

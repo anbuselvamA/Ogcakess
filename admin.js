@@ -253,11 +253,14 @@ cakeForm.addEventListener('submit', async (e) => {
   saveLabel.textContent = '⏳ Saving...';
 
   try {
-    let imageUrl = imgPreview.src && !imgPreview.hidden && !imgPreview.src.startsWith('data')
-      ? imgPreview.src   // Existing URL (editing without new image)
-      : null;
+    // Keep existing imageUrl if editing and no new image chosen
+    let imageUrl = null;
+    if (editingId) {
+      const existing = allCakes.find(c => c.id === editingId);
+      imageUrl = existing?.imageUrl || null;
+    }
 
-    // Upload new image if selected
+    // If user selected a new image file, compress and encode it
     if (newImageFile) {
       imageUrl = await uploadImage(newImageFile);
     }
