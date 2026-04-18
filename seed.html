@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Zia Cakes — Seed Data</title>
+  <title>Zia Cakes — Seed Data with Images</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Poppins',sans-serif;background:#1E1209;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{background:#FDF6EC;border-radius:20px;padding:40px;max-width:640px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.4)}
+    .card{background:#FDF6EC;border-radius:20px;padding:40px;max-width:700px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.4)}
     h1{font-family:'Playfair Display',serif;font-size:1.8rem;color:#2C1A0E;margin-bottom:6px}
     .sub{color:#C9A84C;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px}
     .cake-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
-    .cake-row{background:#F5EBE0;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px}
+    .cake-row{background:#F5EBE0;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px; flex-wrap: wrap;}
     .cake-emoji{font-size:2rem;width:48px;text-align:center;flex-shrink:0}
-    .cake-info{flex:1}
+    .cake-info{flex:1; min-width: 250px;}
     .cake-name{font-weight:600;font-size:0.9rem;color:#2C1A0E}
-    .cake-meta{font-size:0.72rem;color:rgba(44,26,14,0.55);margin-top:2px}
+    .cake-meta{font-size:0.72rem;color:rgba(44,26,14,0.55);margin-top:2px;margin-bottom:8px;}
     .cake-price{font-family:'Playfair Display',serif;font-size:1.1rem;color:#C9A84C;font-weight:700;white-space:nowrap}
     .status{width:20px;height:20px;border-radius:50%;flex-shrink:0;background:rgba(44,26,14,0.12)}
     .status.done{background:#25D366}
@@ -29,12 +29,16 @@
     .done-box{margin-top:20px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:12px;padding:16px;text-align:center;display:none}
     .done-box p{color:#166534;font-weight:600;font-size:0.9rem}
     .done-box a{display:inline-block;margin-top:10px;background:#2C1A0E;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:0.82rem;font-weight:600}
+    input[type=file] {font-family: 'Poppins', sans-serif; font-size: 0.75rem; color: #2C1A0E;}
   </style>
 </head>
 <body>
 <div class="card">
   <h1>Zia Cakes</h1>
-  <p class="sub">🚀 One-Click Cake Setup</p>
+  <p class="sub">🚀 One-Click Cake Setup (With Photos)</p>
+  <p style="font-size: 0.8rem; margin-bottom: 20px; color: #2C1A0E;">
+    Upload the photos from your computer for each cake, then click "Add All". We will automatically compress them and add them to your website.
+  </p>
 
   <div class="cake-list" id="cake-list">
     <div class="cake-row" id="row-0">
@@ -42,6 +46,7 @@
       <div class="cake-info">
         <div class="cake-name">Chocolate Mousse Birthday Cake</div>
         <div class="cake-meta">chocolate · 🔥 Best Seller · Rating 4.9</div>
+        <input type="file" id="img-0" accept="image/*" />
       </div>
       <div class="cake-price">₹1,200</div>
       <div class="status" id="st-0"></div>
@@ -51,6 +56,7 @@
       <div class="cake-info">
         <div class="cake-name">Dark Chocolate Hazelnut Cake</div>
         <div class="cake-meta">chocolate · ⭐ Popular · Rating 4.8</div>
+        <input type="file" id="img-1" accept="image/*" />
       </div>
       <div class="cake-price">₹950</div>
       <div class="status" id="st-1"></div>
@@ -60,6 +66,7 @@
       <div class="cake-info">
         <div class="cake-name">Black Velvet Luxury Cake</div>
         <div class="cake-meta">luxury · 🔥 Best Seller · Rating 5.0</div>
+        <input type="file" id="img-2" accept="image/*" />
       </div>
       <div class="cake-price">₹1,500</div>
       <div class="status" id="st-2"></div>
@@ -69,6 +76,7 @@
       <div class="cake-info">
         <div class="cake-name">Gulab Jamun Fusion Cake</div>
         <div class="cake-meta">custom · ⭐ Popular · Rating 4.8</div>
+        <input type="file" id="img-3" accept="image/*" />
       </div>
       <div class="cake-price">₹1,100</div>
       <div class="status" id="st-3"></div>
@@ -78,6 +86,7 @@
       <div class="cake-info">
         <div class="cake-name">Rose Heart Birthday Cake</div>
         <div class="cake-meta">custom · 🎂 Kids Favourite · Rating 4.7</div>
+        <input type="file" id="img-4" accept="image/*" />
       </div>
       <div class="cake-price">₹850</div>
       <div class="status" id="st-4"></div>
@@ -91,14 +100,14 @@
   <div class="log" id="log"></div>
 
   <div class="done-box" id="done-box">
-    <p>✅ All cakes added successfully!<br>Now open the admin panel to add photos for each cake.</p>
-    <a href="admin.html">Open Admin Panel →</a>
+    <p>✅ All cakes added successfully along with photos!</p>
+    <a href="index.html">View Live Website →</a>
   </div>
 </div>
 
 <script type="module">
 import { db } from './firebase-config.js';
-import { collection, addDoc, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { collection, addDoc, getDocs, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 const CAKES = [
   {
@@ -163,27 +172,73 @@ const CAKES = [
   },
 ];
 
+/* Compress image client-side and return a base64 data URL */
+function compressAndEncode(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        // Resize to max 800px width/height
+        const MAX = 800;
+        let w = img.width, h = img.height;
+        if (w > MAX || h > MAX) {
+          if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+          else       { w = Math.round(w * MAX / h); h = MAX; }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+
+        // Compress to JPEG at 75% quality
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+        resolve(dataUrl);
+      };
+      img.onerror = () => resolve(null);
+      img.src = e.target.result;
+    };
+    reader.onerror = () => resolve(null);
+    reader.readAsDataURL(file);
+  });
+}
+
 window.seedAll = async function() {
   const btn = document.getElementById('seed-btn');
   const log = document.getElementById('log');
   btn.disabled = true;
-  btn.textContent = '⏳ Adding cakes...';
+  btn.textContent = '⏳ Processing and Adding cakes...';
   log.innerHTML = '';
 
   let success = 0;
 
   for (let i = 0; i < CAKES.length; i++) {
-    const cake = CAKES[i];
+    const cake = { ...CAKES[i] }; // Clone to avoid modifying the original array across multiple clicks
     const st = document.getElementById(`st-${i}`);
+    
+    // Check for selected image
+    const fileInput = document.getElementById(`img-${i}`);
+    if (fileInput && fileInput.files.length > 0) {
+      log.innerHTML += `<div class="ok">⏳ Compressing image for ${cake.name}...</div>`;
+      cake.imageUrl = await compressAndEncode(fileInput.files[0]);
+    }
+
     try {
       // Check if cake already exists
       const existing = await getDocs(query(collection(db, 'cakes'), where('name', '==', cake.name)));
       if (!existing.empty) {
-        log.innerHTML += `<div class="ok">✅ "${cake.name}" already exists — skipped</div>`;
+        log.innerHTML += `<div class="ok">✅ "${cake.name}" already exists. Updating its image...</div>`;
+        const docRef = existing.docs[0].ref;
+        if (cake.imageUrl) {
+          await updateDoc(docRef, { imageUrl: cake.imageUrl });
+        }
         st.classList.add('done');
         success++;
         continue;
       }
+      
       await addDoc(collection(db, 'cakes'), { ...cake, createdAt: new Date() });
       log.innerHTML += `<div class="ok">✅ Added: ${cake.name}</div>`;
       st.classList.add('done');
@@ -194,7 +249,7 @@ window.seedAll = async function() {
     }
   }
 
-  btn.textContent = `Done! ${success}/${CAKES.length} cakes added`;
+  btn.textContent = `Done! ${success}/${CAKES.length} cakes added with photos`;
   if (success > 0) document.getElementById('done-box').style.display = 'block';
 };
 </script>
