@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zia Cakes — Seed Data</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:#1E1209;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:#FDF6EC;border-radius:20px;padding:40px;max-width:640px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.4)}
+    h1{font-family:'Playfair Display',serif;font-size:1.8rem;color:#2C1A0E;margin-bottom:6px}
+    .sub{color:#C9A84C;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px}
+    .cake-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+    .cake-row{background:#F5EBE0;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px}
+    .cake-emoji{font-size:2rem;width:48px;text-align:center;flex-shrink:0}
+    .cake-info{flex:1}
+    .cake-name{font-weight:600;font-size:0.9rem;color:#2C1A0E}
+    .cake-meta{font-size:0.72rem;color:rgba(44,26,14,0.55);margin-top:2px}
+    .cake-price{font-family:'Playfair Display',serif;font-size:1.1rem;color:#C9A84C;font-weight:700;white-space:nowrap}
+    .status{width:20px;height:20px;border-radius:50%;flex-shrink:0;background:rgba(44,26,14,0.12)}
+    .status.done{background:#25D366}
+    .status.error{background:#E53E3E}
+    .btn{width:100%;padding:16px;background:#2C1A0E;color:#fff;border:none;border-radius:12px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .btn:hover{background:#C9A84C;color:#2C1A0E}
+    .btn:disabled{opacity:0.6;cursor:not-allowed}
+    .log{margin-top:20px;font-size:0.78rem;color:rgba(44,26,14,0.6);line-height:1.8}
+    .log .ok{color:#15803d}
+    .log .err{color:#E53E3E}
+    .done-box{margin-top:20px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:12px;padding:16px;text-align:center;display:none}
+    .done-box p{color:#166534;font-weight:600;font-size:0.9rem}
+    .done-box a{display:inline-block;margin-top:10px;background:#2C1A0E;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:0.82rem;font-weight:600}
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>Zia Cakes</h1>
+  <p class="sub">🚀 One-Click Cake Setup</p>
+
+  <div class="cake-list" id="cake-list">
+    <div class="cake-row" id="row-0">
+      <div class="cake-emoji">🍫</div>
+      <div class="cake-info">
+        <div class="cake-name">Chocolate Mousse Birthday Cake</div>
+        <div class="cake-meta">chocolate · 🔥 Best Seller · Rating 4.9</div>
+      </div>
+      <div class="cake-price">₹1,200</div>
+      <div class="status" id="st-0"></div>
+    </div>
+    <div class="cake-row" id="row-1">
+      <div class="cake-emoji">🖤</div>
+      <div class="cake-info">
+        <div class="cake-name">Dark Chocolate Hazelnut Cake</div>
+        <div class="cake-meta">chocolate · ⭐ Popular · Rating 4.8</div>
+      </div>
+      <div class="cake-price">₹950</div>
+      <div class="status" id="st-1"></div>
+    </div>
+    <div class="cake-row" id="row-2">
+      <div class="cake-emoji">⚫</div>
+      <div class="cake-info">
+        <div class="cake-name">Black Velvet Luxury Cake</div>
+        <div class="cake-meta">luxury · 🔥 Best Seller · Rating 5.0</div>
+      </div>
+      <div class="cake-price">₹1,500</div>
+      <div class="status" id="st-2"></div>
+    </div>
+    <div class="cake-row" id="row-3">
+      <div class="cake-emoji">🍮</div>
+      <div class="cake-info">
+        <div class="cake-name">Gulab Jamun Fusion Cake</div>
+        <div class="cake-meta">custom · ⭐ Popular · Rating 4.8</div>
+      </div>
+      <div class="cake-price">₹1,100</div>
+      <div class="status" id="st-3"></div>
+    </div>
+    <div class="cake-row" id="row-4">
+      <div class="cake-emoji">💗</div>
+      <div class="cake-info">
+        <div class="cake-name">Rose Heart Birthday Cake</div>
+        <div class="cake-meta">custom · 🎂 Kids Favourite · Rating 4.7</div>
+      </div>
+      <div class="cake-price">₹850</div>
+      <div class="status" id="st-4"></div>
+    </div>
+  </div>
+
+  <button class="btn" id="seed-btn" onclick="seedAll()">
+    🚀 Add All 5 Cakes to Website
+  </button>
+
+  <div class="log" id="log"></div>
+
+  <div class="done-box" id="done-box">
+    <p>✅ All cakes added successfully!<br>Now open the admin panel to add photos for each cake.</p>
+    <a href="admin.html">Open Admin Panel →</a>
+  </div>
+</div>
+
+<script type="module">
+import { db } from './firebase-config.js';
+import { collection, addDoc, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const CAKES = [
+  {
+    name: 'Chocolate Mousse Birthday Cake',
+    price: 1200,
+    oldPrice: 1500,
+    category: 'chocolate',
+    badge: 'hot',
+    rating: 4.9,
+    reviews: 217,
+    description: 'Silky chocolate mousse layered with truffle rosettes and gold birthday topper. A premium birthday favourite.',
+    visible: true,
+    imageUrl: null,
+  },
+  {
+    name: 'Dark Chocolate Hazelnut Cake',
+    price: 950,
+    oldPrice: null,
+    category: 'chocolate',
+    badge: 'pop',
+    rating: 4.8,
+    reviews: 183,
+    description: 'Rich dark chocolate glaze topped with crunchy hazelnuts and Belgian chocolate shards.',
+    visible: true,
+    imageUrl: null,
+  },
+  {
+    name: 'Black Velvet Luxury Cake',
+    price: 1500,
+    oldPrice: null,
+    category: 'luxury',
+    badge: 'hot',
+    rating: 5.0,
+    reviews: 149,
+    description: 'Dramatic matte black ganache with white pearl accents. Ultra-premium. Makes every occasion unforgettable.',
+    visible: true,
+    imageUrl: null,
+  },
+  {
+    name: 'Gulab Jamun Fusion Cake',
+    price: 1100,
+    oldPrice: null,
+    category: 'custom',
+    badge: 'pop',
+    rating: 4.8,
+    reviews: 96,
+    description: 'Unique fusion of traditional gulab jamun on premium white cream cake with pistachio and gold leaf.',
+    visible: true,
+    imageUrl: null,
+  },
+  {
+    name: 'Rose Heart Birthday Cake',
+    price: 850,
+    oldPrice: null,
+    category: 'custom',
+    badge: 'kids',
+    rating: 4.7,
+    reviews: 134,
+    description: 'Heart-shaped pink rose cake with white floral accents and pearl beads. Perfect for birthdays and anniversaries.',
+    visible: true,
+    imageUrl: null,
+  },
+];
+
+window.seedAll = async function() {
+  const btn = document.getElementById('seed-btn');
+  const log = document.getElementById('log');
+  btn.disabled = true;
+  btn.textContent = '⏳ Adding cakes...';
+  log.innerHTML = '';
+
+  let success = 0;
+
+  for (let i = 0; i < CAKES.length; i++) {
+    const cake = CAKES[i];
+    const st = document.getElementById(`st-${i}`);
+    try {
+      // Check if cake already exists
+      const existing = await getDocs(query(collection(db, 'cakes'), where('name', '==', cake.name)));
+      if (!existing.empty) {
+        log.innerHTML += `<div class="ok">✅ "${cake.name}" already exists — skipped</div>`;
+        st.classList.add('done');
+        success++;
+        continue;
+      }
+      await addDoc(collection(db, 'cakes'), { ...cake, createdAt: new Date() });
+      log.innerHTML += `<div class="ok">✅ Added: ${cake.name}</div>`;
+      st.classList.add('done');
+      success++;
+    } catch (err) {
+      log.innerHTML += `<div class="err">❌ Failed: ${cake.name} — ${err.message}</div>`;
+      st.classList.add('error');
+    }
+  }
+
+  btn.textContent = `Done! ${success}/${CAKES.length} cakes added`;
+  if (success > 0) document.getElementById('done-box').style.display = 'block';
+};
+</script>
+</body>
+</html>
