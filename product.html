@@ -66,6 +66,42 @@
       border-width: 0 0 2px 2px;
       border-radius: 0 0 0 6px;
     }
+    /* Dark gradient overlay on image */
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 65%;
+      background: linear-gradient(
+        to top,
+        rgba(10,5,2,0.95) 0%,
+        rgba(10,5,2,0.7) 40%,
+        rgba(10,5,2,0.0) 100%
+      );
+      z-index: 5;
+      pointer-events: none;
+    }
+    /* Cake name overlaid on image */
+    .hero-text {
+      position: absolute;
+      bottom: 36px; left: 20px; right: 20px;
+      z-index: 10;
+    }
+    .hero-name {
+      font-family: var(--serif, 'Playfair Display', serif);
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      margin-bottom: 6px;
+    }
+    .hero-price {
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold, #C9A84C);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
     .back-btn-overlay {
       position: absolute;
       top: 24px;
@@ -77,12 +113,11 @@
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       color: #fff;
-      z-index: 10;
+      z-index: 20;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: background 0.2s;
       cursor: pointer;
     }
-    .back-btn-overlay:active { background: rgba(0,0,0,0.8); }
 
     /* 2. Product Details */
     .detail-sheet {
@@ -290,11 +325,17 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
       </a>
       <img src="" alt="Cake Photo" id="p-img" class="cake-hero-img" />
+      <!-- Dark overlay for text readability -->
+      <div class="hero-overlay"></div>
+      <!-- Cake name + price on the image -->
+      <div class="hero-text">
+        <h1 id="p-name" class="hero-name">--</h1>
+        <span id="p-price-hero" class="hero-price">₹--</span>
+      </div>
     </div>
 
     <!-- 2. Product Details -->
     <div class="detail-sheet">
-      <h1 id="p-name" class="c-name">--</h1>
       <p id="p-desc" class="c-desc">Handcrafted luxury baked fresh.</p>
       
       <!-- 3. Weight Selection -->

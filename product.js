@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       const price = Number(cake.price).toLocaleString('en-IN');
       document.getElementById('p-price').textContent = `₹${price}`;
+      // Hero overlay text (name + price shown directly on the image)
+      const heroPrice = document.getElementById('p-price-hero');
+      if (heroPrice) heroPrice.textContent = `₹${price}`;
       
       if (cake.description) {
         document.getElementById('p-desc').textContent = cake.description;
