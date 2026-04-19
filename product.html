@@ -18,8 +18,8 @@
   <style>
     /* ── Native App Style Overrides ── */
     body {
-      background: var(--espresso, #1A120B);
-      color: var(--cream, #FDF6EC);
+      background: #0E0B09;
+      color: #F5EFE6;
       opacity: 0;
       transition: opacity 0.4s ease;
       min-height: 100vh;
@@ -105,8 +105,8 @@
     .hero-price {
       font-family: var(--sans, 'Poppins', sans-serif);
       font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--gold, #C9A84C);
+      font-weight: 700;
+      color: #E4B84B;
       text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     .back-btn-overlay {
@@ -129,11 +129,11 @@
     /* 2. Product Details */
     .detail-sheet {
       position: relative;
-      margin-top: -30px; /* Overlap image */
-      background: var(--espresso, #1A120B);
+      margin-top: -30px;
+      background: #0E0B09;
       border-radius: 30px 30px 0 0;
-      padding: 32px 24px 120px; /* padding-bottom fits sticky bar */
-      box-shadow: 0 -8px 24px rgba(0,0,0,0.4);
+      padding: 32px 24px 120px;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.5);
       z-index: 5;
     }
     .c-name {
@@ -141,7 +141,7 @@
       font-size: clamp(2rem, 7vw, 2.5rem);
       line-height: 1.1;
       margin-bottom: 8px;
-      color: #FFF;
+      color: #FFFFFF;
     }
     .c-desc {
       font-family: var(--sans, 'Poppins', sans-serif);
@@ -181,11 +181,11 @@
       font-weight: 400;
     }
     .v-btn.active {
-      background: rgba(201,168,76,0.1);
-      color: var(--gold, #C9A84C);
-      border-color: var(--gold, #C9A84C);
-      font-weight: 500;
-      box-shadow: 0 0 12px rgba(201,168,76,0.3); /* Glowing logic */
+      background: rgba(228,184,75,0.15);
+      color: #E4B84B;
+      border-color: #E4B84B;
+      font-weight: 600;
+      box-shadow: 0 0 16px rgba(228,184,75,0.35);
     }
 
     /* Flipkart-Style Carousel: Similar Products */
@@ -238,7 +238,7 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .scard-price {
-      color: var(--gold, #C9A84C);
+      color: #E4B84B;
       font-weight: 600;
       font-size: 0.95rem;
     }
@@ -257,13 +257,13 @@
       position: fixed;
       bottom: 0; left: 0; right: 0;
       padding: 16px 24px;
-      background: var(--espresso, #1A120B);
-      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #0A0806;
+      border-top: 1px solid rgba(228,184,75,0.15);
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      padding-bottom: calc(16px + env(safe-area-inset-bottom)); /* iOS safe area */
+      padding-bottom: calc(16px + env(safe-area-inset-bottom));
     }
     .bb-price-wrap {
       display: flex;
@@ -278,19 +278,20 @@
     .bb-price {
       font-family: var(--sans, 'Poppins', sans-serif);
       font-size: 1.6rem;
-      font-weight: 600;
-      color: #fff;
+      font-weight: 700;
+      color: #E4B84B;
     }
     .bb-btn {
-      background: linear-gradient(135deg, #DFB95E, #C9A84C);
-      color: #1A120B;
+      background: linear-gradient(135deg, #E4B84B, #C9932A);
+      color: #0E0B09;
       border: none;
       border-radius: 100px;
       padding: 14px 36px;
       font-family: var(--sans, 'Poppins', sans-serif);
       font-size: 1rem;
-      font-weight: 600;
-      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(228,184,75,0.4);
       cursor: pointer;
       transition: transform 0.2s;
     }
