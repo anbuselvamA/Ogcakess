@@ -1,30 +1,30 @@
 /* ════════════════════════════════════════════════════
    ZIA CAKES — Premium Bakery
-   Palette: Deep Night #100A07 · Gold #D4AF37
-            Dark Card #1E1510 · Soft Ivory #F8F2EC
+   Palette: Espresso #2C1A0E · Blush #F2A7A7
+            Antique Cream #FDF6EC · Dusty Gold #C9A84C
    Fonts: Playfair Display (serif) · Poppins (sans)
    ════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ─────────────────────────────────── */
 :root {
-  --espresso:    #F8F2EC;
-  --espresso-a60: rgba(248,242,236,0.6);
-  --espresso-a08: rgba(248,242,236,0.08);
-  --blush:       #D4A8A0;
-  --cream:       #100A07;
-  --cream-mid:   #1A1108;
-  --cream-dark:  #231508;
-  --gold:        #D4AF37;
-  --gold-a40:    rgba(212,175,55,0.40);
-  --gold-a12:    rgba(212,175,55,0.12);
+  --espresso:    #2C1A0E;
+  --espresso-a60: rgba(44,26,14,0.6);
+  --espresso-a08: rgba(44,26,14,0.08);
+  --blush:       #F2A7A7;
+  --cream:       #FDF6EC;
+  --cream-mid:   #F5ECD9;
+  --cream-dark:  #EDE0CA;
+  --gold:        #C9A84C;
+  --gold-a40:    rgba(201,168,76,0.40);
+  --gold-a12:    rgba(201,168,76,0.12);
   --white:       #FFFFFF;
 
   --wa-green:    #25D366;
 
   --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --sans:  'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --radius: 16px;
-  --radius-lg: 24px;
+  --radius: 12px;
+  --radius-lg: 16px;
 
   /* 8-pt grid */
   --s4:  4px; --s8: 8px; --s12: 12px; --s16: 16px; --s20: 20px;
@@ -47,10 +47,11 @@ body {
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.8;
-  color: #F8F2EC;
-  background-color: #100A07;
+  color: var(--espresso);
+  background-color: var(--cream);
+  /* Premium warm soft cream to beige gradient */
   background-image:
-    radial-gradient(ellipse 80% 60% at 0% 0%, #1E1108 0%, #0A0705 100%);
+    radial-gradient(ellipse 90% 90% at top left,   rgba(253,246,236,1) 0%, rgba(245,236,217,1) 100%);
   overflow-x: hidden;
 }
 a   { text-decoration: none; color: inherit; }
@@ -109,9 +110,9 @@ ul  { list-style: none; }
   transition: background var(--mid) var(--ease), box-shadow var(--mid) var(--ease), padding var(--mid) var(--ease);
 }
 .navbar.scrolled {
-  background: rgba(16,10,7,0.95);
+  background: rgba(253,246,236,0.90);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(212,175,55,0.12);
+  box-shadow: 0 1px 0 rgba(44,26,14,0.07);
   padding-top: var(--s16); padding-bottom: var(--s16);
 }
 
@@ -2206,97 +2207,4 @@ ul  { list-style: none; }
     width: 100%;
     justify-content: center;
   }
-}
-
-/* ═══════════════════════════════════════════════════════
-   MOBILE LUXURY OVERRIDE  (max-width: 768px)
-   Desktop is 100% unchanged above this block
-   ═══════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-
-  /* Global dark background */
-  body {
-    background: #0F0B08 !important;
-    background-image: none !important;
-    color: #FAF5F0 !important;
-  }
-
-  /* Navbar dark */
-  .site-header, header, nav {
-    background: rgba(15,11,8,0.97) !important;
-    border-bottom: 1px solid rgba(228,184,75,0.15) !important;
-  }
-
-  /* Section / product area */
-  section, main, .products-section, #products {
-    background: #0F0B08 !important;
-  }
-
-  /* Headings */
-  h2, h3, h4 { color: #FAF5F0 !important; }
-
-  /* Search bar */
-  input[type="search"],
-  input[placeholder*="earch"] {
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(228,184,75,0.25) !important;
-    color: #FAF5F0 !important;
-    border-radius: 50px !important;
-  }
-  input[placeholder*="earch"]::placeholder { color: rgba(250,245,240,0.4) !important; }
-
-  /* Category tabs */
-  .filter-tab, .tab-btn {
-    background: rgba(255,255,255,0.05) !important;
-    color: rgba(250,245,240,0.6) !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    border-radius: 50px !important;
-  }
-  .filter-tab.active, .tab-btn.active {
-    background: linear-gradient(135deg,#E4B84B,#C9932A) !important;
-    color: #0F0B08 !important;
-    border-color: transparent !important;
-    font-weight: 600 !important;
-  }
-
-  /* Product cards */
-  .cake-card, .product-card {
-    background: #1C1410 !important;
-    border: 1px solid rgba(228,184,75,0.12) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
-  }
-  .cake-name, .product-name { color: #FAF5F0 !important; font-weight: 600 !important; }
-  .cake-price, .product-price, .price { color: #E4B84B !important; font-weight: 700 !important; }
-
-  /* Order form */
-  .order-section, #order-form {
-    background: #120D09 !important;
-    color: #FAF5F0 !important;
-  }
-  .order-section h2, .order-section p,
-  #order-form h2, #order-form p { color: #FAF5F0 !important; }
-  .order-section input, .order-section select, .order-section textarea,
-  #order-form input, #order-form select, #order-form textarea {
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(228,184,75,0.2) !important;
-    color: #FAF5F0 !important;
-    border-radius: 12px !important;
-  }
-
-  /* Footer */
-  footer, .footer {
-    background: #0A0705 !important;
-    color: rgba(250,245,240,0.7) !important;
-    border-top: 1px solid rgba(228,184,75,0.1) !important;
-  }
-
-  /* Ticker & banners */
-  [class*="ticker"], [class*="marquee"] {
-    background: #1A1108 !important;
-    color: #E4B84B !important;
-  }
-
-  /* Labels & body text */
-  label, p, .eyebrow { color: rgba(250,245,240,0.75) !important; }
 }
