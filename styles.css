@@ -2208,3 +2208,96 @@ ul  { list-style: none; }
     justify-content: center;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE LUXURY OVERRIDE  (max-width: 768px)
+   Desktop is 100% unchanged above this block
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Global dark background */
+  body {
+    background: #0F0B08 !important;
+    background-image: none !important;
+    color: #FAF5F0 !important;
+  }
+
+  /* Navbar dark */
+  .site-header, header, nav {
+    background: rgba(15,11,8,0.97) !important;
+    border-bottom: 1px solid rgba(228,184,75,0.15) !important;
+  }
+
+  /* Section / product area */
+  section, main, .products-section, #products {
+    background: #0F0B08 !important;
+  }
+
+  /* Headings */
+  h2, h3, h4 { color: #FAF5F0 !important; }
+
+  /* Search bar */
+  input[type="search"],
+  input[placeholder*="earch"] {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(228,184,75,0.25) !important;
+    color: #FAF5F0 !important;
+    border-radius: 50px !important;
+  }
+  input[placeholder*="earch"]::placeholder { color: rgba(250,245,240,0.4) !important; }
+
+  /* Category tabs */
+  .filter-tab, .tab-btn {
+    background: rgba(255,255,255,0.05) !important;
+    color: rgba(250,245,240,0.6) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 50px !important;
+  }
+  .filter-tab.active, .tab-btn.active {
+    background: linear-gradient(135deg,#E4B84B,#C9932A) !important;
+    color: #0F0B08 !important;
+    border-color: transparent !important;
+    font-weight: 600 !important;
+  }
+
+  /* Product cards */
+  .cake-card, .product-card {
+    background: #1C1410 !important;
+    border: 1px solid rgba(228,184,75,0.12) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+  }
+  .cake-name, .product-name { color: #FAF5F0 !important; font-weight: 600 !important; }
+  .cake-price, .product-price, .price { color: #E4B84B !important; font-weight: 700 !important; }
+
+  /* Order form */
+  .order-section, #order-form {
+    background: #120D09 !important;
+    color: #FAF5F0 !important;
+  }
+  .order-section h2, .order-section p,
+  #order-form h2, #order-form p { color: #FAF5F0 !important; }
+  .order-section input, .order-section select, .order-section textarea,
+  #order-form input, #order-form select, #order-form textarea {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(228,184,75,0.2) !important;
+    color: #FAF5F0 !important;
+    border-radius: 12px !important;
+  }
+
+  /* Footer */
+  footer, .footer {
+    background: #0A0705 !important;
+    color: rgba(250,245,240,0.7) !important;
+    border-top: 1px solid rgba(228,184,75,0.1) !important;
+  }
+
+  /* Ticker & banners */
+  [class*="ticker"], [class*="marquee"] {
+    background: #1A1108 !important;
+    color: #E4B84B !important;
+  }
+
+  /* Labels & body text */
+  label, p, .eyebrow { color: rgba(250,245,240,0.75) !important; }
+}
