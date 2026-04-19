@@ -28,7 +28,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Populate UI
       document.getElementById('p-name').textContent = cake.name;
-      
+
+      // Name + rating below image
+      const nameSheet = document.getElementById('p-name-sheet');
+      if (nameSheet) nameSheet.textContent = cake.name;
+
+      // Star rating
+      const rating = parseFloat(cake.rating) || 4.5;
+      const fullStars = Math.round(rating);
+      const starsEl = document.getElementById('p-stars');
+      const ratingValEl = document.getElementById('p-rating-val');
+      if (starsEl) starsEl.textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+      if (ratingValEl) ratingValEl.textContent = rating.toFixed(1);
+
       const price = Number(cake.price).toLocaleString('en-IN');
       document.getElementById('p-price').textContent = `₹${price}`;
       // Hero overlay text (name + price shown directly on the image)
