@@ -207,14 +207,19 @@
       <span class="gold-rule" aria-hidden="true"></span>
     </header>
 
-    <!-- Filter tabs -->
-    <div class="filters-wrap js-reveal" style="--d:0.12s">
+    <!-- Filter tabs & Search -->
+    <div class="filters-wrap js-reveal" style="--d:0.12s; display: flex; flex-wrap: wrap; gap: var(--s16); align-items: center; justify-content: space-between;">
       <div class="filters" role="tablist" aria-label="Filter by category">
         <button class="ftab active" data-filter="all" role="tab" aria-selected="true">All Items</button>
         <button class="ftab" data-filter="luxury" role="tab" aria-selected="false">Luxury Cakes</button>
         <button class="ftab" data-filter="custom" role="tab" aria-selected="false">Custom Creations</button>
         <button class="ftab" data-filter="chocolate" role="tab" aria-selected="false">Chocolate</button>
         <button class="ftab" data-filter="wedding" role="tab" aria-selected="false">Wedding</button>
+      </div>
+      
+      <div class="search-box" style="flex: 1 1 200px; max-width: 320px;">
+        <input type="text" id="product-search" placeholder="Search for cakes..." aria-label="Search cakes" autocomplete="off"
+          style="width: 100%; padding: 12px 18px; border-radius: 100px; border: 1.5px solid rgba(44,26,14,0.15); font-family: var(--sans); font-size: 0.85rem; outline: none; background: #fff;" />
       </div>
     </div>
 

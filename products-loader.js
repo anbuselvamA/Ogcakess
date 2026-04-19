@@ -126,11 +126,28 @@ function renderCakes(cakes) {
   if (activeCat !== 'all') filterCards(activeCat);
 }
 
-function filterCards(cat) {
+function applyFilters() {
+  const activeCat = document.querySelector('.ftab.active')?.dataset?.filter || 'all';
+  const searchTerm = document.getElementById('product-search')?.value.toLowerCase().trim() || '';
+
   document.querySelectorAll('.pcard').forEach(card => {
-    const match = cat === 'all' || card.dataset.cat === cat;
-    card.style.display = match ? '' : 'none';
+    const isCatMatch = activeCat === 'all' || card.dataset.cat === activeCat;
+    const cakeName = card.querySelector('.pcard-name')?.textContent.toLowerCase() || '';
+    const isTextMatch = cakeName.includes(searchTerm);
+    
+    card.style.display = (isCatMatch && isTextMatch) ? '' : 'none';
   });
+}
+
+function filterCards(cat) {
+  // Kept for backwards compatibility if needed elsewhere
+  applyFilters();
+}
+
+/* Listen to Search Bar */
+const searchInput = document.getElementById('product-search');
+if (searchInput) {
+  searchInput.addEventListener('input', applyFilters);
 }
 
 /* Re-activate filter tabs to work on dynamic cards */
@@ -142,7 +159,7 @@ document.querySelectorAll('.ftab').forEach(tab => {
     });
     tab.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
-    filterCards(tab.dataset.filter);
+    applyFilters();
   });
 });
 
