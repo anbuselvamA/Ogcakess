@@ -2142,6 +2142,7 @@ ul  { list-style: none; }
   .rv-row { grid-template-columns: 1fr; }
   .sp-star { font-size: 1.9rem; }
 }
+@media (max-width: 480px) {
   .review-form-box { padding: var(--s24) var(--s16); }
 }
 
@@ -2157,129 +2158,53 @@ ul  { list-style: none; }
     min-height: 85vh;
     padding: var(--s32) var(--gutter);
   }
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin-right: 0 !important;
+    z-index: 0;
+    opacity: 0.4; /* Soft fade for background */
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .oval-stage {
+    width: 150%;
+    max-width: 600px;
+    opacity: 0.85;
+  }
+  .hero-caption {
+    display: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--s32) var(--s20);
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
   .hero-heading {
     text-align: center !important;
   }
-}
-
-/* ══════════════════════════════════════════════════════
-   PREMIUM REFINEMENT OVERRIDES (1-6)
-══════════════════════════════════════════════════════ */
-
-/* 1. Hero Full Bleed & Animation */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 0 var(--gutter);
-}
-.hero-visual {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 0 !important;
-  opacity: 1 !important;
-  margin: 0 !important;
-  background: var(--espresso); /* Dark background baseline */
-  animation: none !important;
-  filter: none !important;
-}
-.hero-bg-cake {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55; /* Dark background - very luxe */
-  animation: premiumParallax 20s ease-in-out infinite alternate;
-}
-@keyframes premiumParallax {
-  from { transform: scale(1) translateY(0); }
-  to { transform: scale(1.08) translateY(-3%); }
-}
-
-/* Let the text breathe natively */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  animation: premiumFadeIn 2s var(--ease) forwards;
-}
-/* Ensure text pops on the dark luxe hero background */
-.hero-content * {
-  color: var(--cream) !important;
-}
-.hero-content .logo-wordmark, .hero-content .h1-italic {
-  /* Keep gold accents */
-  background: linear-gradient(120deg, var(--gold) 0%, #FFF 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--gold) !important;
-}
-
-@keyframes premiumFadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 2. Trust line replacing pills */
-.hero-trust-line {
-  font-family: var(--sans);
-  font-size: 0.65rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cream);
-  margin-top: var(--s48);
-  opacity: 0.8;
-  display: block;
-}
-.hero-trust-line .mdot {
-  margin: 0 4px;
-}
-
-/* 3. Sticky Order Now Button -> Deep Gold #B8860B */
-#wa-float, .wa-float {
-  background: #B8860B !important;
-  color: #FFF !important;
-  border-color: #B8860B !important;
-  box-shadow: 0 8px 32px rgba(184,134,11,0.3) !important;
-}
-#wa-float:hover, .wa-float:hover {
-  background: #9A7008 !important; 
-  box-shadow: 0 12px 40px rgba(184,134,11,0.4) !important;
-}
-
-/* 4. Ticker bar -> Gold on dark */
-.marquee-strip {
-  background: var(--espresso) !important;
-  border: none !important;
-  padding: var(--s24) 0 !important;
-}
-.marquee-track span {
-  color: var(--gold) !important;
-  opacity: 1 !important;
-  font-weight: 500 !important;
-}
-.marquee-track .mdot {
-  color: var(--cream) !important;
-}
-
-/* 5. Typography breathing room */
-.section-hd {
-  margin-bottom: var(--s80) !important;
-}
-.products-section {
-  padding-top: var(--s120) !important;
-  padding-bottom: var(--s120) !important;
-}
-.products-urgency {
-  margin-bottom: var(--s48) !important;
+  .hero-heading .h1-line {
+    display: block;
+    margin: 0 auto;
+  }
+  .eyebrow, .hero-delivery-pill, .badges {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  .badges {
+    flex-direction: column;
+    gap: var(--s8);
+  }
+  .badge {
+    width: 100%;
+    justify-content: center;
+  }
 }
