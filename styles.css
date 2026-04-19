@@ -1,22 +1,22 @@
 /* ════════════════════════════════════════════════════
    ZIA CAKES — Premium Bakery
-   Palette: Espresso #2C1A0E · Blush #F2A7A7
-            Antique Cream #FDF6EC · Dusty Gold #C9A84C
+   Palette: Deep Night #120C0A · Rose Champagne #D4A8A0
+             Ivory Mist #FAF5F0 · Vivid Gold #E4B84B
    Fonts: Playfair Display (serif) · Poppins (sans)
    ════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ─────────────────────────────────── */
 :root {
-  --espresso:    #2C1A0E;
-  --espresso-a60: rgba(44,26,14,0.6);
-  --espresso-a08: rgba(44,26,14,0.08);
-  --blush:       #F2A7A7;
-  --cream:       #FDF6EC;
-  --cream-mid:   #F5ECD9;
-  --cream-dark:  #EDE0CA;
-  --gold:        #C9A84C;
-  --gold-a40:    rgba(201,168,76,0.40);
-  --gold-a12:    rgba(201,168,76,0.12);
+  --espresso:    #120C0A;
+  --espresso-a60: rgba(18,12,10,0.6);
+  --espresso-a08: rgba(18,12,10,0.08);
+  --blush:       #D4A8A0;
+  --cream:       #FAF5F0;
+  --cream-mid:   #F0E8DC;
+  --cream-dark:  #E5D8C5;
+  --gold:        #E4B84B;
+  --gold-a40:    rgba(228,184,75,0.40);
+  --gold-a12:    rgba(228,184,75,0.12);
   --white:       #FFFFFF;
 
   --wa-green:    #25D366;
@@ -49,9 +49,8 @@ body {
   line-height: 1.8;
   color: var(--espresso);
   background-color: var(--cream);
-  /* Premium warm soft cream to beige gradient */
   background-image:
-    radial-gradient(ellipse 90% 90% at top left,   rgba(253,246,236,1) 0%, rgba(245,236,217,1) 100%);
+    radial-gradient(ellipse 90% 90% at top left, #FAF5F0 0%, #EDE5D8 100%);
   overflow-x: hidden;
 }
 a   { text-decoration: none; color: inherit; }
