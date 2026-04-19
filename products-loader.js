@@ -38,7 +38,7 @@ function buildCard(cake, idx) {
     : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;">🎂</div>`;
 
   return `
-  <article class="pcard" style="--d:${delay}s" data-cat="${cake.category || 'all'}" data-id="${cake.id}">
+  <article class="pcard clickable-card" style="--d:${delay}s; cursor: pointer;" data-cat="${cake.category || 'all'}" data-id="${cake.id}">
     <div class="pcard-img">
       ${imgHTML}
       ${badgeHTML}
@@ -53,7 +53,6 @@ function buildCard(cake, idx) {
           <span class="pcard-price">&#8377;${price}</span>
           ${oldPriceHTML}
         </div>
-        <button class="btn-order">Order</button>
       </div>
     </div>
   </article>`;
@@ -75,46 +74,19 @@ function renderCakes(cakes) {
   /* Make all cards immediately visible (no scroll observer needed) */
   pgrid.querySelectorAll('.pcard').forEach(card => card.classList.add('visible'));
 
-  /* Re-attach the Order button auto-fill behavior */
-  pgrid.querySelectorAll('.btn-order').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  /* Hook up route transition to product details */
+  pgrid.querySelectorAll('.clickable-card').forEach(card => {
+    card.addEventListener('click', (e) => {
       e.preventDefault();
-      const card  = btn.closest('.pcard');
-      const cname = card?.querySelector('.pcard-name')?.textContent?.trim() || '';
-      let price   = card?.querySelector('.pcard-price')?.textContent?.trim() || '';
-      price = price.replace('₹', '').replace(/,/g, '').trim();
-
-      /* Highlight selected card */
-      document.querySelectorAll('.pcard').forEach(c => c.classList.remove('pcard--selected'));
-      card?.classList.add('pcard--selected');
-
-      /* Auto-fill form */
-      const cakeNameInput = document.getElementById('f-cakename');
-      const priceDisplay  = document.getElementById('f-priceDisplay');
-      if (cakeNameInput) {
-        cakeNameInput.value      = cname;
-        cakeNameInput.readOnly   = true;
-        cakeNameInput.style.background   = 'rgba(201,168,76,0.08)';
-        cakeNameInput.style.borderColor  = 'rgba(201,168,76,0.35)';
-      }
-      if (priceDisplay && price) {
-        priceDisplay.textContent = `Price: ₹${Number(price).toLocaleString('en-IN')}`;
-        priceDisplay.style.display = 'block';
-      }
-
-      /* Scroll to order form */
-      const orderForm = document.getElementById('order-form');
-      if (orderForm) {
-        setTimeout(() => {
-          orderForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          const formEl = document.getElementById('cake-order-form');
-          if (formEl) {
-            formEl.style.transition = 'box-shadow 0.3s ease';
-            formEl.style.boxShadow  = '0 0 0 3px rgba(201,168,76,0.35)';
-            setTimeout(() => { formEl.style.boxShadow = ''; }, 1200);
-          }
-        }, 10);
-      }
+      const cakeId = card.dataset.id || '';
+      
+      // Page out transition
+      document.body.style.transition = 'opacity 0.35s ease';
+      document.body.style.opacity = '0';
+      
+      setTimeout(() => {
+        window.location.href = `product.html?id=${cakeId}`;
+      }, 350);
     });
   });
 
