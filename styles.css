@@ -2184,12 +2184,6 @@ ul  { list-style: none; }
     z-index: 2;
     padding: var(--s32) var(--s20);
     text-align: center;
-    background: rgba(253, 246, 236, 0.45);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    box-shadow: 0 16px 40px rgba(44, 26, 14, 0.05);
     margin: 0 auto;
     width: 100%;
   }
