@@ -164,6 +164,7 @@ try {
 
 /* ──── Auto-fill Order Form mapping from Detail Page ──── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Wait 1200ms to ensure Firebase cakes render completely, establishing final page height
   setTimeout(() => {
     const pendingOrderName = sessionStorage.getItem('pendingOrderName');
     const pendingOrderPrice = sessionStorage.getItem('pendingOrderPrice');
@@ -183,8 +184,22 @@ document.addEventListener('DOMContentLoaded', () => {
         priceDisplay.style.display = 'block';
       }
       
+      // Force mobile scroll to snap to the order form AFTER layout stabilizes
+      const orderForm = document.getElementById('order-form');
+      if (orderForm) {
+        orderForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Visual gold highlight 
+        const formEl = document.getElementById('cake-order-form');
+        if (formEl) {
+          formEl.style.transition = 'box-shadow 0.4s ease';
+          formEl.style.boxShadow = '0 0 0 4px rgba(201,168,76,0.4)';
+          setTimeout(() => { formEl.style.boxShadow = ''; }, 2000);
+        }
+      }
+      
       sessionStorage.removeItem('pendingOrderName');
       sessionStorage.removeItem('pendingOrderPrice');
     }
-  }, 300);
+  }, 1200);
 });
