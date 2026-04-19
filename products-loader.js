@@ -46,9 +46,7 @@ function buildCard(cake, idx) {
     <div class="pcard-body">
       <h3 class="pcard-name">${cake.name}</h3>
       ${cake.description ? `<p class="pcard-desc">${cake.description}</p>` : ''}
-      <div class="pcard-rating">⭐ ${rating} <span style="color:rgba(44,26,14,0.35);font-weight:400">(${reviews})</span></div>
-      <div class="pcard-delivery">🟢 Same day delivery</div>
-      <div class="pcard-foot">
+      <div class="pcard-foot" style="margin-top: 12px;">
         <div>
           <span class="pcard-price">&#8377;${price}</span>
           ${oldPriceHTML}
@@ -163,3 +161,30 @@ try {
   console.error('products-loader init error:', err);
   if (loading) loading.remove();
 }
+
+/* ──── Auto-fill Order Form mapping from Detail Page ──── */
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const pendingOrderName = sessionStorage.getItem('pendingOrderName');
+    const pendingOrderPrice = sessionStorage.getItem('pendingOrderPrice');
+    
+    if (pendingOrderName) {
+      const nameInput = document.getElementById('f-cakename');
+      const priceDisplay = document.getElementById('f-priceDisplay');
+      
+      if (nameInput) {
+        nameInput.value = pendingOrderName;
+        nameInput.readOnly = true;
+        nameInput.style.background = 'rgba(201,168,76,0.08)';
+        nameInput.style.borderColor = 'rgba(201,168,76,0.35)';
+      }
+      if (priceDisplay && pendingOrderPrice) {
+        priceDisplay.textContent = `Price: ₹${pendingOrderPrice}`;
+        priceDisplay.style.display = 'block';
+      }
+      
+      sessionStorage.removeItem('pendingOrderName');
+      sessionStorage.removeItem('pendingOrderPrice');
+    }
+  }, 300);
+});

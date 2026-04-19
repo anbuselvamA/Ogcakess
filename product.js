@@ -46,11 +46,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('p-rating').textContent = `⭐ ${cake.rating} | Best Seller`;
       }
 
-      // Configure WhatsApp Button
+      // Configure Order Button (Redirect to Order Form)
       const waBtn = document.getElementById('btn-wa');
       waBtn.addEventListener('click', () => {
-        const text = encodeURIComponent(`Hi Zia Cakes! I would like to order the ${cake.name} (₹${price}).`);
-        window.open(`https://wa.me/918778077747?text=${text}`, '_blank');
+        // Pass info back to index.html
+        sessionStorage.setItem('pendingOrderName', cake.name);
+        sessionStorage.setItem('pendingOrderPrice', price);
+        window.location.href = 'index.html#contact'; // Anchor to footer order form
       });
 
       // Show View
