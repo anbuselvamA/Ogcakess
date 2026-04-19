@@ -9,215 +9,313 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── Product Page Specific Overrides ── */
+    /* ── Native App Style Overrides ── */
     body {
-      background: var(--espresso); /* Premium Dark Theme as requested */
-      color: var(--cream);
-      opacity: 0; /* JS will fade in on load */
+      background: var(--espresso, #1A120B);
+      color: var(--cream, #FDF6EC);
+      opacity: 0;
       transition: opacity 0.4s ease;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
+      -webkit-tap-highlight-color: transparent;
     }
     
-    .nav-bar {
-      padding: var(--s24) var(--gutter);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+    /* 1. Top Section - Parallax Hero */
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      background: #FDF6EC;
     }
-    .back-btn {
-      color: var(--cream);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0.8;
-      transition: opacity var(--fast) var(--ease);
-    }
-    .back-btn:hover { opacity: 1; }
-    
     .cake-hero-img {
       width: 100%;
-      height: 55vh;
-      min-height: 400px;
+      height: 100%;
       object-fit: cover;
       object-position: center;
-      background: rgba(44,26,14,0.1);
+      transition: transform 0.5s ease-out;
+      /* CSS parallax hack for smooth scroll */
+      will-change: transform;
     }
-    
-    .cake-detail-bd {
-      flex: 1;
-      padding: var(--s40) var(--gutter) 120px; /* Padding bottom for sticky btn */
-      max-width: 800px;
-      margin: 0 auto;
-      width: 100%;
+    .back-btn-overlay {
+      position: absolute;
+      top: 24px;
+      left: 16px;
+      width: 44px; height: 44px;
+      background: rgba(26,18,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.2s;
+      cursor: pointer;
     }
-    
+    .back-btn-overlay:active { background: rgba(0,0,0,0.8); }
+
+    /* 2. Product Details */
+    .detail-sheet {
+      position: relative;
+      margin-top: -30px; /* Overlap image */
+      background: var(--espresso, #1A120B);
+      border-radius: 30px 30px 0 0;
+      padding: 32px 24px 120px; /* padding-bottom fits sticky bar */
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.4);
+      z-index: 5;
+    }
     .c-name {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 6vw, 3rem);
+      font-family: var(--serif, 'Playfair Display', serif);
+      font-size: clamp(2rem, 7vw, 2.5rem);
       line-height: 1.1;
-      margin-bottom: var(--s12);
-      color: var(--gold);
+      margin-bottom: 8px;
+      color: #FFF;
     }
-    
-    .c-price {
-      font-family: var(--sans);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--cream);
-      margin-bottom: var(--s16);
-      display: inline-block;
-    }
-    
     .c-desc {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      opacity: 0.85;
-      margin-bottom: var(--s32);
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(253,246,236,0.7);
+      margin-bottom: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Enforce single line */
     }
-    
-    .c-options {
-      margin-bottom: var(--s40);
-    }
+
+    /* 3. Weight Selection */
     .c-options-title {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      opacity: 0.6;
-      margin-bottom: var(--s12);
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: rgba(253,246,236,0.5);
+      margin-bottom: 12px;
       display: block;
     }
     .c-variants {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
     .v-btn {
-      padding: 10px 20px;
-      border: 1px solid rgba(201,168,76,0.3);
-      border-radius: 100px;
-      color: var(--cream);
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      transition: all var(--fast);
+      padding: 12px 20px;
+      border: 1.5px solid rgba(253,246,236,0.15);
+      border-radius: 12px;
+      color: var(--cream, #FDF6EC);
+      background: transparent;
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      font-weight: 400;
     }
     .v-btn.active {
-      background: var(--gold);
-      color: var(--espresso);
-      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      color: var(--gold, #C9A84C);
+      border-color: var(--gold, #C9A84C);
       font-weight: 500;
+      box-shadow: 0 0 12px rgba(201,168,76,0.3); /* Glowing logic */
     }
+
+    /* Flipkart-Style Carousel: Similar Products */
+    .similar-section {
+      margin-top: 20px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .section-title {
+      font-family: var(--serif, sans-serif);
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 16px; /* for scrollbar spacing */
+      -webkit-overflow-scrolling: touch;
+      /* Hide standard scrollbar but keep functionality */
+      scrollbar-width: none; 
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
     
-    /* Sticky Order Button */
-    .sticky-order-bar {
+    .similar-card {
+      scroll-snap-align: start;
+      flex: 0 0 160px; /* Fixed width cards */
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .similar-card:active { transform: scale(0.96); }
+    .scard-img {
+      width: 100%; height: 160px;
+      background: #FDF6EC;
+      object-fit: cover;
+    }
+    .scard-body {
+      padding: 12px;
+    }
+    .scard-name {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #fff;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .scard-price {
+      color: var(--gold, #C9A84C);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .scard-tag {
+      font-size: 0.65rem;
+      background: rgba(201,168,76,0.2);
+      color: var(--gold, #C9A84C);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    /* 4. Sticky Bottom Bar */
+    .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      padding: var(--s16) var(--gutter);
-      background: rgba(44,26,14,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      z-index: 90;
+      padding: 16px 24px;
+      background: var(--espresso, #1A120B);
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      padding-bottom: calc(16px + env(safe-area-inset-bottom)); /* iOS safe area */
     }
-    .btn-wa-order {
-      background: #25D366;
+    .bb-price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .bb-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .bb-price {
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
       color: #fff;
+    }
+    .bb-btn {
+      background: linear-gradient(135deg, #DFB95E, #C9A84C);
+      color: #1A120B;
       border: none;
       border-radius: 100px;
-      padding: 18px 32px;
-      font-family: var(--sans);
-      font-size: 1.05rem;
+      padding: 14px 36px;
+      font-family: var(--sans, 'Poppins', sans-serif);
+      font-size: 1rem;
       font-weight: 600;
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: 0 8px 32px rgba(37,211,102,0.25);
-      transition: transform var(--fast), background var(--fast);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
       cursor: pointer;
+      transition: transform 0.2s;
     }
-    .btn-wa-order:active { transform: scale(0.97); }
+    .bb-btn:active { transform: scale(0.95); }
 
-    /* Skeleton Loading UI */
+    /* Skeleton UI */
     .skeleton {
       background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
       background-size: 200% 100%;
       animation: skel 1.5s infinite;
       border-radius: 6px;
     }
-    @keyframes skel {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    #skel-view {
-      padding: var(--s40) var(--gutter);
-    }
+    @keyframes skel { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav class="nav-bar">
-    <a href="index.html" class="back-btn" id="btn-back">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-      Back
-    </a>
-  </nav>
-
-  <!-- Content Container -->
-  <main id="app-root">
-    
-    <!-- Loading Skeleton -->
-    <div id="skel-view">
-      <div class="skeleton" style="width: 100%; height: 45vh; max-height:400px; margin-bottom: 24px; border-radius: 20px;"></div>
-      <div class="skeleton" style="width: 60%; height: 48px; margin-bottom: 16px;"></div>
-      <div class="skeleton" style="width: 30%; height: 32px; margin-bottom: 24px;"></div>
-      <div class="skeleton" style="width: 100%; height: 20px; margin-bottom: 8px;"></div>
-      <div class="skeleton" style="width: 80%; height: 20px;"></div>
-    </div>
-    
-    <!-- Dynamic Product View (Hidden initially) -->
-    <div id="product-view" style="display: none;">
-      <img src="" alt="Cake Image" id="p-img" class="cake-hero-img" />
-      <div class="cake-detail-bd">
-        <h1 id="p-name" class="c-name">Loading...</h1>
-        <div class="pcard-rating" id="p-rating" style="margin-bottom: 12px; color: var(--gold);">⭐ 4.5 </div>
-        <div id="p-price" class="c-price">₹--</div>
-        <p id="p-desc" class="c-desc">Beautifully handcrafted premium cake, made fresh to order. Experience indulgence at its finest.</p>
-        
-        <div class="c-options">
-          <span class="c-options-title">Select Weight</span>
-          <div class="c-variants">
-            <button class="v-btn active">1 kg</button>
-            <button class="v-btn">1.5 kg</button>
-            <button class="v-btn">2 kg (Custom)</button>
-          </div>
+  <!-- Loading State -->
+  <div id="skel-view" style="width:100%; height:100vh;">
+      <div class="skeleton" style="width:100%; height:55vh;"></div>
+      <div style="padding: 32px 24px;">
+        <div class="skeleton" style="width: 70%; height: 40px; margin-bottom: 16px;"></div>
+        <div class="skeleton" style="width: 100%; height: 20px; margin-bottom: 32px;"></div>
+        <div class="skeleton" style="width: 40%; height: 20px; margin-bottom: 12px;"></div>
+        <div style="display:flex; gap:12px;">
+          <div class="skeleton" style="width: 80px; height: 44px; border-radius: 12px;"></div>
+          <div class="skeleton" style="width: 80px; height: 44px; border-radius: 12px;"></div>
         </div>
       </div>
-      
-      <!-- Sticky Mobile CTA -->
-      <div class="sticky-order-bar">
-        <button class="btn-wa-order" id="btn-wa" style="background: var(--gold); color: var(--espresso); border-color: var(--gold); box-shadow: 0 8px 32px rgba(201,168,76,0.25);">
-          Order
-        </button>
-      </div>
+  </div>
+
+  <!-- Dynamic Product View -->
+  <main id="product-view" style="display: none;">
+    
+    <!-- 1. Top Section -->
+    <div class="hero-container">
+      <a href="index.html" class="back-btn-overlay" aria-label="Go Back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </a>
+      <img src="" alt="Cake Photo" id="p-img" class="cake-hero-img" />
     </div>
+
+    <!-- 2. Product Details -->
+    <div class="detail-sheet">
+      <h1 id="p-name" class="c-name">--</h1>
+      <p id="p-desc" class="c-desc">Handcrafted luxury baked fresh.</p>
+      
+      <!-- 3. Weight Selection -->
+      <div class="c-options">
+        <span class="c-options-title">Select Weight</span>
+        <div class="c-variants">
+          <button class="v-btn active">1 kg</button>
+          <button class="v-btn">1.5 kg</button>
+          <button class="v-btn">Custom</button>
+        </div>
+      </div>
+
+      <!-- Suggested Cakes Carousel -->
+      <section class="similar-section">
+        <h2 class="section-title">You may also like 🍰</h2>
+        <div class="carousel-track" id="similar-track">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- 4. Sticky Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="bb-price-wrap">
+        <span class="bb-label">Total Price</span>
+        <span id="p-price" class="bb-price">₹--</span>
+      </div>
+      <button class="bb-btn" id="btn-order">Order Now</button>
+    </div>
+
   </main>
 
   <!-- Firebase integration -->
   <script type="module" src="product.js"></script>
+
+  <!-- Hardware Parallax Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const img = document.querySelector('.cake-hero-img');
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        if(scrolled < 400 && img) {
+          // Subtle zoom & parallax
+          img.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 + scrolled * 0.0005})`;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 import { db } from './firebase-config.js';
 import {
-  doc, getDoc
+  doc, getDoc, collection, getDocs, query, limit
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const productView = document.getElementById('product-view');
 
   if (!cakeId) {
-    skelView.innerHTML = '<p style="padding: 40px; text-align:center;">Product not found.</p>';
-    window.location.href = 'index.html'; // Fallback
+    window.location.href = 'index.html';
     return;
   }
 
   try {
+    // 1. Fetch Main Product
     const docRef = doc(db, 'cakes', cakeId);
     const docSnap = await getDoc(docRef);
 
@@ -38,32 +38,89 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (cake.imageUrl) {
         document.getElementById('p-img').src = cake.imageUrl;
-      } else {
-        document.getElementById('p-img').style.display = 'none'; // Better layout if no image
       }
       
-      if (cake.rating) {
-        document.getElementById('p-rating').textContent = `⭐ ${cake.rating} | Best Seller`;
-      }
-
-      // Configure Order Button (Redirect to Order Form)
-      const waBtn = document.getElementById('btn-wa');
-      waBtn.addEventListener('click', () => {
-        // Pass info back to index.html
+      // Order Button Logic -> Redirect to Form
+      const orderBtn = document.getElementById('btn-order');
+      orderBtn.addEventListener('click', () => {
+        orderBtn.style.transform = 'scale(0.95)'; // Visual tap
         sessionStorage.setItem('pendingOrderName', cake.name);
         sessionStorage.setItem('pendingOrderPrice', price);
-        window.location.href = 'index.html#order-form'; // Anchor to Order Your Custom Cake section
+        window.location.href = 'index.html#order-form';
       });
 
+      // 2. Fetch "Similar Products"
+      loadSimilarProducts(cakeId, cake.category || 'all');
+
       // Show View
-      skelView.style.display = 'none';
-      productView.style.display = 'block';
+      setTimeout(() => {
+        skelView.style.display = 'none';
+        productView.style.display = 'block';
+      }, 300);
 
     } else {
-      skelView.innerHTML = '<p style="padding: 40px; text-align:center;">This cake is no longer available.</p>';
+      window.location.href = 'index.html';
     }
   } catch (error) {
-    console.error("Error fetching cake data:", error);
-    skelView.innerHTML = '<p style="padding: 40px; text-align:center;">Connection error loading product details.</p>';
+    console.error("Error fetching cake:", error);
+    window.location.href = 'index.html';
   }
 });
+
+async function loadSimilarProducts(currentCakeId, category) {
+  const track = document.getElementById('similar-track');
+  try {
+    // Fetch a few cakes to show in the carousel
+    const q = query(collection(db, 'cakes'), limit(8));
+    const querySnapshot = await getDocs(q);
+    
+    let similarCakes = [];
+    querySnapshot.forEach((docSnap) => {
+      if (docSnap.id !== currentCakeId) {
+        similarCakes.push({ id: docSnap.id, ...docSnap.data() });
+      }
+    });
+
+    // Shuffle for randomness if we have enough
+    similarCakes.sort(() => 0.5 - Math.random());
+    similarCakes = similarCakes.slice(0, 5); // Keep up to 5
+
+    if (similarCakes.length === 0) {
+      document.querySelector('.similar-section').style.display = 'none';
+      return;
+    }
+
+    let html = '';
+    for (const sc of similarCakes) {
+      const price = Number(sc.price).toLocaleString('en-IN');
+      const img = sc.imageUrl && sc.imageUrl.length > 5 ? sc.imageUrl : '';
+      
+      html += `
+        <article class="similar-card" data-id="${sc.id}">
+          <img src="${img}" class="scard-img" alt="${sc.name}" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="scard-body">
+            <h4 class="scard-name">${sc.name}</h4>
+            <div class="scard-price">₹${price}</div>
+            <span class="scard-tag">Best Seller</span>
+          </div>
+        </article>
+      `;
+    }
+    
+    track.innerHTML = html;
+
+    // Add click listeners to carousel cards
+    track.querySelectorAll('.similar-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.body.style.opacity = '0'; // fade out
+        setTimeout(() => {
+          window.location.href = `product.html?id=${card.dataset.id}`;
+        }, 200);
+      });
+    });
+
+  } catch (err) {
+    console.error("Error loading similar caching", err);
+    document.querySelector('.similar-section').style.display = 'none';
+  }
+}
