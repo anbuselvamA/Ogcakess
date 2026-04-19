@@ -39,8 +39,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('p-desc').textContent = cake.description;
       }
 
-      if (cake.imageUrl) {
-        document.getElementById('p-img').src = cake.imageUrl;
+      const imgEl = document.getElementById('p-img');
+      if (cake.imageUrl && cake.imageUrl.length > 10) {
+        imgEl.src = cake.imageUrl;
+        imgEl.onerror = () => {
+          // Image failed to load — show a beautiful gradient placeholder
+          imgEl.style.display = 'none';
+          const heroContainer = document.querySelector('.hero-container');
+          heroContainer.style.background = 'linear-gradient(160deg, #3D1F0D 0%, #1A120B 50%, #2C1A0E 100%)';
+          const placeholder = document.createElement('div');
+          placeholder.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:5rem;z-index:2;filter:drop-shadow(0 8px 16px rgba(0,0,0,0.5));';
+          placeholder.textContent = '🎂';
+          heroContainer.appendChild(placeholder);
+        };
+      } else {
+        imgEl.style.display = 'none';
+        document.querySelector('.hero-container').style.background = 'linear-gradient(160deg, #3D1F0D 0%, #1A120B 50%, #2C1A0E 100%)';
       }
       
       // Order Button Logic -> Redirect to Form
