@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Pass info back to index.html
         sessionStorage.setItem('pendingOrderName', cake.name);
         sessionStorage.setItem('pendingOrderPrice', price);
-        window.location.href = 'index.html#contact'; // Anchor to footer order form
+        window.location.href = 'index.html#order-form'; // Anchor to Order Your Custom Cake section
       });
 
       // Show View
